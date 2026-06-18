@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LayoutDashboard, Users, UserCircle2, FolderKanban } from "lucide-react";
 import { requireAuth } from "@/lib/auth";
 import { LogoutButton } from "@/components/forms/auth-forms";
+import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Membership Dashboard",
@@ -40,6 +41,43 @@ const cards = [
 
 export default async function MembershipDashboardPage() {
   const profile = await requireAuth();
+  let submissionStats = {
+    volunteerForms: 0,
+    contactForms: 0,
+    rsvps: 0,
+    newsletterSubscriptions: 0,
+  };
+
+  try {
+    const supabase = await getSupabaseServerClient();
+    const [volunteerCount, contactCount, rsvpCount, newsletterCount] = await Promise.all([
+      supabase
+        .from("volunteer_applications")
+        .select("*", { count: "exact", head: true })
+        .eq("email", profile.email),
+      supabase
+        .from("contact_messages")
+        .select("*", { count: "exact", head: true })
+        .eq("email", profile.email),
+      supabase
+        .from("event_rsvps")
+        .select("*", { count: "exact", head: true })
+        .eq("email", profile.email),
+      supabase
+        .from("newsletter_subscriptions")
+        .select("*", { count: "exact", head: true })
+        .eq("email", profile.email),
+    ]);
+
+    submissionStats = {
+      volunteerForms: volunteerCount.count ?? 0,
+      contactForms: contactCount.count ?? 0,
+      rsvps: rsvpCount.count ?? 0,
+      newsletterSubscriptions: newsletterCount.count ?? 0,
+    };
+  } catch {
+    // Dashboard keeps rendering if Supabase environment is not configured.
+  }
 
   return (
     <section className="container-shell py-14 md:py-20">
@@ -52,6 +90,25 @@ export default async function MembershipDashboardPage() {
           <p className="mt-2 text-sm text-slate-600">Role: {profile.role.replace("_", " ")}</p>
         </div>
         <LogoutButton />
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article className="surface-card p-4">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Volunteer forms</p>
+          <p className="mt-2 text-2xl font-bold text-[#0F4C81]">{submissionStats.volunteerForms}</p>
+        </article>
+        <article className="surface-card p-4">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Contact forms</p>
+          <p className="mt-2 text-2xl font-bold text-[#0F4C81]">{submissionStats.contactForms}</p>
+        </article>
+        <article className="surface-card p-4">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Event RSVPs</p>
+          <p className="mt-2 text-2xl font-bold text-[#0F4C81]">{submissionStats.rsvps}</p>
+        </article>
+        <article className="surface-card p-4">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Newsletter</p>
+          <p className="mt-2 text-2xl font-bold text-[#0F4C81]">{submissionStats.newsletterSubscriptions}</p>
+        </article>
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">

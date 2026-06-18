@@ -27,6 +27,11 @@ Production-ready NGO platform for **World Impact Initiative** built with:
   - Volunteer registration
   - Contact form
   - Event RSVP
+  - Newsletter signup
+  - Membership registration notification
+- Automated form notifications:
+  - Every form submission is stored in Supabase
+  - Owner email notifications are sent to `info@worldimpactinitiative.org`
 - SEO stack:
   - Metadata
   - Open Graph
@@ -49,6 +54,8 @@ Production-ready NGO platform for **World Impact Initiative** built with:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
+   - `RESEND_API_KEY`
+   - `NOTIFICATION_FROM_EMAIL`
 
 4. Apply the SQL schema in your Supabase project:
 

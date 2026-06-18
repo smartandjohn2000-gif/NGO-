@@ -13,3 +13,13 @@ export function getSupabaseAdminClient() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
+
+export function getSupabaseAdminClientOrThrow() {
+  const client = getSupabaseAdminClient();
+  if (!client) {
+    throw new Error(
+      "Supabase admin client is not configured. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
+    );
+  }
+  return client;
+}

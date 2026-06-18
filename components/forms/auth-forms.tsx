@@ -31,7 +31,21 @@ export function RegisterForm() {
               options: { data: { full_name: fullName } },
             });
             if (error) throw error;
-            setMessage("Registration successful. Check your email to verify your account.");
+            const notifyResponse = await fetch("/api/membership/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ fullName, email }),
+            });
+            if (notifyResponse.ok) {
+              setMessage("Registration successful. Check your email to verify your account.");
+            } else {
+              const payload = await notifyResponse.json().catch(() => null);
+              setMessage(
+                payload?.message
+                  ? `Registration successful. Notification warning: ${payload.message}`
+                  : "Registration successful, but notification delivery is currently unavailable.",
+              );
+            }
             router.refresh();
           } catch (error) {
             setMessage(error instanceof Error ? error.message : "Registration failed.");

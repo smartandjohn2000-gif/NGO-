@@ -50,6 +50,40 @@ create table if not exists public.event_rsvps (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.newsletter_subscriptions (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  source text not null default 'website',
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.member_registrations (
+  id uuid primary key default gen_random_uuid(),
+  full_name text not null,
+  email text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.form_notification_logs (
+  id uuid primary key default gen_random_uuid(),
+  form_type text not null check (
+    form_type in (
+      'volunteer_application',
+      'contact_message',
+      'event_rsvp',
+      'newsletter_subscription',
+      'member_registration'
+    )
+  ),
+  submission_table text not null,
+  submission_id uuid,
+  payload jsonb not null,
+  delivery_status text not null check (delivery_status in ('sent', 'failed')),
+  provider_message_id text,
+  error_message text,
+  created_at timestamptz not null default now()
+);
+
 create table if not exists public.beneficiaries (
   id uuid primary key default gen_random_uuid(),
   full_name text not null,
@@ -113,6 +147,9 @@ alter table public.profiles enable row level security;
 alter table public.volunteer_applications enable row level security;
 alter table public.contact_messages enable row level security;
 alter table public.event_rsvps enable row level security;
+alter table public.newsletter_subscriptions enable row level security;
+alter table public.member_registrations enable row level security;
+alter table public.form_notification_logs enable row level security;
 alter table public.beneficiaries enable row level security;
 alter table public.beneficiary_case_notes enable row level security;
 
@@ -143,6 +180,27 @@ create policy "service role manages contact messages"
 drop policy if exists "service role manages event rsvps" on public.event_rsvps;
 create policy "service role manages event rsvps"
   on public.event_rsvps
+  for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');
+
+drop policy if exists "service role manages newsletter subscriptions" on public.newsletter_subscriptions;
+create policy "service role manages newsletter subscriptions"
+  on public.newsletter_subscriptions
+  for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');
+
+drop policy if exists "service role manages member registrations" on public.member_registrations;
+create policy "service role manages member registrations"
+  on public.member_registrations
+  for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');
+
+drop policy if exists "service role manages form notification logs" on public.form_notification_logs;
+create policy "service role manages form notification logs"
+  on public.form_notification_logs
   for all
   using (auth.role() = 'service_role')
   with check (auth.role() = 'service_role');

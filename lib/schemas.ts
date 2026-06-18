@@ -32,6 +32,11 @@ export const newsletterSchema = z.object({
   email: z.string().email("Valid email is required."),
 });
 
+export const memberRegistrationSchema = z.object({
+  fullName: z.string().min(2, "Full name is required."),
+  email: z.string().email("Valid email is required."),
+});
+
 export const profileUpdateSchema = z.object({
   full_name: z.string().min(2),
   country: z.string().min(2),

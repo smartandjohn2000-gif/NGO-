@@ -5,6 +5,14 @@ export type UserRole =
   | "volunteer_coordinator"
   | "member";
 
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
+
 export type Database = {
   public: {
     Tables: {
@@ -109,6 +117,77 @@ export type Database = {
         Update: {
           attendees?: number;
           notes?: string | null;
+        };
+        Relationships: [];
+      };
+      newsletter_subscriptions: {
+        Row: {
+          id: string;
+          email: string;
+          source: string;
+          created_at: string;
+        };
+        Insert: {
+          email: string;
+          source?: string;
+        };
+        Update: {
+          source?: string;
+        };
+        Relationships: [];
+      };
+      member_registrations: {
+        Row: {
+          id: string;
+          full_name: string;
+          email: string;
+          created_at: string;
+        };
+        Insert: {
+          full_name: string;
+          email: string;
+        };
+        Update: {
+          full_name?: string;
+          email?: string;
+        };
+        Relationships: [];
+      };
+      form_notification_logs: {
+        Row: {
+          id: string;
+          form_type:
+            | "volunteer_application"
+            | "contact_message"
+            | "event_rsvp"
+            | "newsletter_subscription"
+            | "member_registration";
+          submission_table: string;
+          submission_id: string | null;
+          payload: Json;
+          delivery_status: "sent" | "failed";
+          provider_message_id: string | null;
+          error_message: string | null;
+          created_at: string;
+        };
+        Insert: {
+          form_type:
+            | "volunteer_application"
+            | "contact_message"
+            | "event_rsvp"
+            | "newsletter_subscription"
+            | "member_registration";
+          submission_table: string;
+          submission_id?: string | null;
+          payload: Json;
+          delivery_status: "sent" | "failed";
+          provider_message_id?: string | null;
+          error_message?: string | null;
+        };
+        Update: {
+          delivery_status?: "sent" | "failed";
+          provider_message_id?: string | null;
+          error_message?: string | null;
         };
         Relationships: [];
       };

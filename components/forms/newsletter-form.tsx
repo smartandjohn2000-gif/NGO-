@@ -20,13 +20,28 @@ export function NewsletterForm() {
     resolver: zodResolver(newsletterSchema),
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (values: NewsletterFormValues) => {
     setIsSubmitting(true);
-    setTimeout(() => {
+    setMessage(null);
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.message ?? "Subscription failed.");
+      }
+
       setMessage("Thanks for subscribing. You will receive our latest updates.");
-      setIsSubmitting(false);
       reset();
-    }, 500);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Subscription failed.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

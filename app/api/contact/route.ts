@@ -1,23 +1,61 @@
 import { contactSchema } from "@/lib/schemas";
-import { getSupabaseAdminClient } from "@/lib/supabase/admin";
+import { getSupabaseAdminClientOrThrow } from "@/lib/supabase/admin";
+import { sendSubmissionNotification } from "@/lib/email";
+import { insertNotificationLog } from "@/lib/form-notifications";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const parsed = contactSchema.parse(body);
-    const supabase = getSupabaseAdminClient();
+    const supabase = getSupabaseAdminClientOrThrow();
 
-    if (supabase) {
-      const { error } = await supabase.from("contact_messages").insert({
+    const { data: submission, error: insertError } = await supabase
+      .from("contact_messages")
+      .insert({
         full_name: parsed.fullName,
         email: parsed.email,
         subject: parsed.subject,
         message: parsed.message,
+      })
+      .select("id")
+      .single();
+
+    if (insertError) {
+      throw insertError;
+    }
+
+    try {
+      const providerMessageId = await sendSubmissionNotification({
+        formType: "contact_message",
+        subject: `New contact form submission: ${parsed.subject}`,
+        replyTo: parsed.email,
+        fields: {
+          full_name: parsed.fullName,
+          email: parsed.email,
+          subject: parsed.subject,
+          message: parsed.message,
+        },
       });
 
-      if (error) {
-        throw error;
-      }
+      await insertNotificationLog({
+        form_type: "contact_message",
+        submission_table: "contact_messages",
+        submission_id: submission.id,
+        payload: parsed,
+        delivery_status: "sent",
+        provider_message_id: providerMessageId,
+      });
+    } catch (emailError) {
+      await insertNotificationLog({
+        form_type: "contact_message",
+        submission_table: "contact_messages",
+        submission_id: submission.id,
+        payload: parsed,
+        delivery_status: "failed",
+        error_message:
+          emailError instanceof Error ? emailError.message : "Notification failed",
+      });
+      throw emailError;
     }
 
     return Response.json({ ok: true });
