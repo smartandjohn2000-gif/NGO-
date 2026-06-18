@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, HandHeart, HeartHandshake, UsersRound } from "lucide-react";
+import { ArrowRight, CheckCircle2, HandHeart, UsersRound } from "lucide-react";
 import Link from "next/link";
 import { MotionSection } from "@/components/motion-section";
 import { impactAreas } from "@/lib/content";
