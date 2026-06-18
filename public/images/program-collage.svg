@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="World Impact Initiative program collage">
+  <rect width="1400" height="900" fill="#0F4C81"/>
+  <circle cx="1240" cy="120" r="230" fill="#F4B400" opacity=".92"/>
+  <circle cx="210" cy="820" r="320" fill="#F7F9FC" opacity=".14"/>
+  <g fill="none" stroke="#fff" stroke-width="4" opacity=".18">
+    <path d="M75 180c180 90 360 90 540 0s360-90 540 0 360 90 540 0"/>
+    <path d="M75 260c180 90 360 90 540 0s360-90 540 0 360 90 540 0"/>
+  </g>
+  <g transform="translate(180 220)">
+    <rect width="300" height="220" rx="38" fill="#fff" opacity=".94"/>
+    <circle cx="94" cy="92" r="44" fill="#F4B400"/>
+    <path d="M56 166h188" stroke="#0F4C81" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(545 150)">
+    <rect width="300" height="300" rx="44" fill="#F7F9FC" opacity=".96"/>
+    <circle cx="150" cy="112" r="64" fill="#0F4C81"/>
+    <path d="M75 232c22-68 72-102 150-102s128 34 150 102" fill="#F4B400" opacity=".76"/>
+  </g>
+  <g transform="translate(910 260)">
+    <rect width="300" height="220" rx="38" fill="#fff" opacity=".94"/>
+    <path d="M68 148l62-62 48 48 72-82" stroke="#0F4C81" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(360 540)">
+    <rect width="680" height="170" rx="48" fill="#fff" opacity=".93"/>
+    <path d="M80 90h520" stroke="#0F4C81" stroke-width="24" stroke-linecap="round"/>
+    <path d="M80 125h340" stroke="#F4B400" stroke-width="18" stroke-linecap="round"/>
+  </g>
+</svg>
