@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { PageHero } from "@/components/sections/page-hero";
 import { LoginForm } from "@/components/forms/auth-forms";
 
@@ -20,7 +21,15 @@ export default function MembershipLoginPage() {
       />
       <section className="container-shell py-14 md:py-20">
         <div className="mx-auto max-w-xl space-y-4">
-          <LoginForm />
+          <Suspense
+            fallback={
+              <div className="rounded-2xl bg-white p-6 shadow-lg">
+                <p className="text-sm text-slate-600">Loading login form...</p>
+              </div>
+            }
+          >
+            <LoginForm />
+          </Suspense>
           <p className="text-center text-sm text-slate-600">
             New member?{" "}
             <Link href="/membership/register" className="font-semibold text-[#0F4C81]">

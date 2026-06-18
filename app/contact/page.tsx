@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, MapPin, Twitter, Youtube } from "lucide-react";
+import {
+  AtSign,
+  Camera,
+  Globe,
+  MapPin,
+  MessageSquareShare,
+  PlayCircle,
+} from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -14,11 +21,15 @@ export const metadata: Metadata = {
 };
 
 const socialIcons = [
-  { label: "Facebook", href: "https://linktr.ee/worldimpactinitiative.org", icon: Facebook },
-  { label: "Instagram", href: "https://linktr.ee/worldimpactinitiative.org", icon: Instagram },
-  { label: "LinkedIn", href: "https://linktr.ee/worldimpactinitiative.org", icon: Linkedin },
-  { label: "X (Twitter)", href: "https://linktr.ee/worldimpactinitiative.org", icon: Twitter },
-  { label: "YouTube", href: "https://linktr.ee/worldimpactinitiative.org", icon: Youtube },
+  { label: "Facebook", href: "https://linktr.ee/worldimpactinitiative.org", icon: Globe },
+  { label: "Instagram", href: "https://linktr.ee/worldimpactinitiative.org", icon: Camera },
+  { label: "LinkedIn", href: "https://linktr.ee/worldimpactinitiative.org", icon: AtSign },
+  {
+    label: "X (Twitter)",
+    href: "https://linktr.ee/worldimpactinitiative.org",
+    icon: MessageSquareShare,
+  },
+  { label: "YouTube", href: "https://linktr.ee/worldimpactinitiative.org", icon: PlayCircle },
 ];
 
 export default function ContactPage() {

@@ -24,11 +24,7 @@ export const eventRsvpSchema = z.object({
   eventId: z.string().min(1),
   fullName: z.string().min(2, "Name is required."),
   email: z.string().email("Valid email is required."),
-  attendees: z
-    .number({ invalid_type_error: "Attendees must be a number." })
-    .int()
-    .min(1)
-    .max(10),
+  attendees: z.number().int().min(1).max(10),
   notes: z.string().optional(),
 });
 

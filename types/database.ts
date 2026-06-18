@@ -36,6 +36,7 @@ export type Database = {
           bio?: string | null;
           role?: UserRole;
         };
+        Relationships: [];
       };
       volunteer_applications: {
         Row: {
@@ -65,6 +66,7 @@ export type Database = {
         Update: {
           status?: "new" | "reviewing" | "approved" | "archived";
         };
+        Relationships: [];
       };
       contact_messages: {
         Row: {
@@ -85,6 +87,7 @@ export type Database = {
           subject?: string;
           message?: string;
         };
+        Relationships: [];
       };
       event_rsvps: {
         Row: {
@@ -107,6 +110,7 @@ export type Database = {
           attendees?: number;
           notes?: string | null;
         };
+        Relationships: [];
       };
       beneficiaries: {
         Row: {
@@ -136,6 +140,7 @@ export type Database = {
           assigned_program_slug?: string;
           status?: string;
         };
+        Relationships: [];
       };
       beneficiary_case_notes: {
         Row: {
@@ -153,6 +158,22 @@ export type Database = {
         Update: {
           note?: string;
         };
+        Relationships: [
+          {
+            foreignKeyName: "beneficiary_case_notes_beneficiary_id_fkey";
+            columns: ["beneficiary_id"];
+            isOneToOne: false;
+            referencedRelation: "beneficiaries";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "beneficiary_case_notes_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
     };
     Views: Record<string, never>;

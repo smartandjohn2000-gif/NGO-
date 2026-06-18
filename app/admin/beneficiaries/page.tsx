@@ -37,6 +37,15 @@ const fallbackBeneficiaries = [
   },
 ];
 
+type BeneficiaryRecord = {
+  id: string;
+  full_name: string;
+  assigned_program_slug: string;
+  status: string;
+  location: string | null;
+  age: number | null;
+};
+
 type CaseNote = {
   id: string;
   note: string;
@@ -59,7 +68,7 @@ const fallbackNotes: CaseNote[] = [
 export default async function AdminBeneficiariesPage() {
   await requireRole(ADMIN_ALLOWED_ROLES);
 
-  let beneficiaries = fallbackBeneficiaries;
+  let beneficiaries: BeneficiaryRecord[] = fallbackBeneficiaries;
   let caseNotes = fallbackNotes;
 
   try {

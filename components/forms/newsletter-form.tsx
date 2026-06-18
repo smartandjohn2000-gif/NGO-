@@ -20,7 +20,7 @@ export function NewsletterForm() {
     resolver: zodResolver(newsletterSchema),
   });
 
-  const onSubmit = async (_values: NewsletterFormValues) => {
+  const onSubmit = async () => {
     setIsSubmitting(true);
     setTimeout(() => {
       setMessage("Thanks for subscribing. You will receive our latest updates.");
