@@ -8,6 +8,13 @@ export const metadata: Metadata = {
     "World Impact Initiative membership portal for registration, login, dashboard, profile management, directory, and resources."
 };
 
+const portalFeatures = [
+  ["User Registration", IdCard],
+  ["Login", Lock],
+  ["Dashboard", Users],
+  ["Resource Center", BookOpen]
+] as const;
+
 export default function MembershipPage() {
   return (
     <>
@@ -25,16 +32,10 @@ export default function MembershipPage() {
       </section>
       <section className="section bg-[#F7F9FC]">
         <div className="container grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {[
-            ["User Registration", IdCard],
-            ["Login", Lock],
-            ["Dashboard", Users],
-            ["Resource Center", BookOpen]
-          ].map(([title, Icon]) => {
-            const TypedIcon = Icon as typeof IdCard;
+          {portalFeatures.map(([title, Icon]) => {
             return (
               <article key={String(title)} className="card p-7">
-                <TypedIcon className="text-[#0F4C81]" aria-hidden />
+                <Icon className="text-[#0F4C81]" aria-hidden />
                 <h2 className="mt-5 text-xl font-black">{title}</h2>
                 <p className="mt-3 leading-7 text-slate-600">
                   Supabase Auth-ready portal feature for secure nonprofit operations.
