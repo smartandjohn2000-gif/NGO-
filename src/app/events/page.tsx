@@ -150,7 +150,7 @@ export default function EventsPage() {
                 Reserve your spot
               </h2>
               <p className="mt-2 text-ink-600">
-                Tell us which event you'd like to join and we'll be in touch
+                Tell us which event you&rsquo;d like to join and we&rsquo;ll be in touch
                 with details.
               </p>
               <form

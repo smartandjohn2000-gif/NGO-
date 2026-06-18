@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
-import { Search, MapPin, Award } from "lucide-react";
+import { Search, Award } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Member Directory",

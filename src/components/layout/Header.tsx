@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Heart } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
@@ -14,8 +14,14 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const previousPath = useRef(pathname);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (previousPath.current !== pathname) {
+      previousPath.current = pathname;
+      setOpen(false);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);

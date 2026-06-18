@@ -104,7 +104,7 @@ export default function AboutPage() {
               </p>
               <p>
                 We were founded in Canada because Canada is our home, and
-                because Canada's pluralism, generosity, and tradition of public
+                because Canada&rsquo;s pluralism, generosity, and tradition of public
                 service offer a foundation for principled global action. From
                 that base, we set out to build something different: a nonprofit
                 that puts protection at the center, that designs with—not
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 Our Inspiration
               </p>
               <h2 className="mt-3 text-3xl md:text-4xl lg:text-[2.6rem] font-bold leading-tight text-brand-900 text-balance">
-                Six lives that shape ours—and remind us what's possible.
+                Six lives that shape ours&mdash;and remind us what&rsquo;s possible.
               </h2>
               <p className="mt-4 text-base md:text-lg text-ink-600">
                 We draw inspiration from people whose courage, kindness, and
@@ -187,7 +187,7 @@ export default function AboutPage() {
                           }`}
                         >
                           <Quote className="h-4 w-4 text-gold-500 mt-1 shrink-0" aria-hidden="true" />
-                          "{p.quote}"
+                          &ldquo;{p.quote}&rdquo;
                         </blockquote>
                       </div>
                       <div className="hidden md:block" />
@@ -269,11 +269,11 @@ export default function AboutPage() {
             <div className="grid items-center gap-8 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h2 className="text-2xl md:text-3xl font-bold text-balance">
-                  We can't do this alone—and that's the point.
+                  We can&rsquo;t do this alone&mdash;and that&rsquo;s the point.
                 </h2>
                 <p className="mt-3 text-white/85 max-w-2xl">
-                  Whether you're a donor, a volunteer, or a future partner,
-                  there's a place for you here.
+                  Whether you&rsquo;re a donor, a volunteer, or a future partner,
+                  there&rsquo;s a place for you here.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end">

@@ -89,7 +89,7 @@ export default async function ProgramDetail(
               </span>
               <h3 className="mt-6 text-xl font-bold">Our promise</h3>
               <p className="mt-3 text-white/85 leading-relaxed">
-                {program.shortTitle} is more than a program—it's a commitment.
+                {program.shortTitle} is more than a program&mdash;it&rsquo;s a commitment.
                 We arrive ready to listen, equipped to act, and prepared to
                 stay long after the cameras leave.
               </p>
@@ -186,7 +186,7 @@ export default async function ProgramDetail(
             </p>
             <Quote className="h-10 w-10 text-gold-300 mt-4" aria-hidden="true" />
             <blockquote className="mt-2 text-2xl md:text-3xl font-medium leading-snug text-balance">
-              "{program.story.quote}"
+              &ldquo;{program.story.quote}&rdquo;
             </blockquote>
             <p className="mt-6 text-sm uppercase tracking-widest text-white/70">
               {program.story.name} · {program.story.location}
@@ -284,7 +284,7 @@ export default async function ProgramDetail(
                 Partner with us to scale impact.
               </h2>
               <p className="mt-3 text-white/85 max-w-md">
-                Foundations, governments, and corporate partners—let's design a program that lasts.
+                Foundations, governments, and corporate partners&mdash;let&rsquo;s design a program that lasts.
               </p>
               <div className="mt-6">
                 <ButtonLink href="/contact?subject=partnership" variant="gold" size="lg">

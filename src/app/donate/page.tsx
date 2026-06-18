@@ -198,7 +198,7 @@ export default function DonatePage() {
                 <figure className="h-full rounded-3xl bg-ink-50 p-7 ring-1 ring-ink-100">
                   <Quote className="h-7 w-7 text-gold-500" aria-hidden="true" />
                   <blockquote className="mt-4 text-base leading-relaxed text-ink-700">
-                    "{t.quote}"
+                    &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-5 text-sm font-semibold text-brand-900">
                     {t.author}

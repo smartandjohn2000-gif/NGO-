@@ -50,7 +50,7 @@ export default function VolunteerPage() {
             </h2>
             <p className="mt-4 text-ink-600">
               Our volunteers are at the center of everything we do. Tell us
-              what you love and how you'd like to help—we'll match you with a
+              what you love and how you&rsquo;d like to help&mdash;we&rsquo;ll match you with a
               role that fits.
             </p>
             <ul className="mt-8 space-y-4">
@@ -79,11 +79,11 @@ export default function VolunteerPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-brand-700 mt-0.5" aria-hidden="true" />
-                  We'll invite you to a brief 20-minute virtual chat.
+                  We&rsquo;ll invite you to a brief 20-minute virtual chat.
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-brand-700 mt-0.5" aria-hidden="true" />
-                  We'll match you to a role and complete onboarding.
+                  We&rsquo;ll match you to a role and complete onboarding.
                 </li>
               </ol>
             </div>

@@ -7,7 +7,7 @@ export default function NotFound() {
         404
       </p>
       <h1 className="mt-3 text-4xl md:text-5xl font-extrabold text-brand-900">
-        We couldn't find that page.
+        We couldn&rsquo;t find that page.
       </h1>
       <p className="mt-4 text-ink-600 max-w-xl mx-auto">
         The page may have moved or no longer exists. Try the homepage or one of
