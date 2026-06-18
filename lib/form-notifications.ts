@@ -1,11 +1,12 @@
 import type { Database } from "@/types/database";
 import { getSupabaseAdminClientOrThrow } from "@/lib/supabase/admin";
+import type { Json } from "@/types/database";
 
 type NotificationLogInput = {
   form_type: Database["public"]["Tables"]["form_notification_logs"]["Insert"]["form_type"];
   submission_table: string;
   submission_id: string | null;
-  payload: Record<string, unknown>;
+  payload: Json;
   delivery_status: "sent" | "failed";
   provider_message_id?: string | null;
   error_message?: string | null;
