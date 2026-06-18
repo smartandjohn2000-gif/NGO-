@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0F4C81;
+  --color-primary-50: #E8F1F8;
+  --color-primary-100: #C5D9EE;
+  --color-primary-200: #9EBEDD;
+  --color-primary-300: #77A2CC;
+  --color-primary-400: #518BBB;
+  --color-primary-500: #0F4C81;
+  --color-primary-600: #0D4070;
+  --color-primary-700: #0A325B;
+  --color-primary-800: #072444;
+  --color-primary-900: #04162B;
+
+  --color-gold: #F4B400;
+  --color-gold-50: #FFF8E1;
+  --color-gold-100: #FFECB3;
+  --color-gold-200: #FFE082;
+  --color-gold-300: #FFD54F;
+  --color-gold-400: #FFCA28;
+  --color-gold-500: #F4B400;
+  --color-gold-600: #E0A800;
+  --color-gold-700: #C79500;
+  --color-gold-800: #A07800;
+  --color-gold-900: #7A5C00;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --shadow-card: 0 4px 20px rgba(15,76,129,0.12);
+  --shadow-card-hover: 0 8px 40px rgba(15,76,129,0.24);
+  --shadow-cta: 0 8px 32px rgba(244,180,0,0.3);
+
+  --breakpoint-xs: 375px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1A202C;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* Component classes using plain CSS for Tailwind v4 compatibility */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: #0F4C81;
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #0D4070;
+  box-shadow: 0 10px 25px rgba(15,76,129,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid #F4B400;
+  outline-offset: 2px;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: #F4B400;
+  color: #0F4C81;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background-color: #E0A800;
+  box-shadow: 0 8px 32px rgba(244,180,0,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-gold:focus-visible {
+  outline: 2px solid #0F4C81;
+  outline-offset: 2px;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border: 2px solid #0F4C81;
+  color: #0F4C81;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  background: transparent;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: #0F4C81;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid #F4B400;
+  outline-offset: 2px;
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border: 2px solid white;
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  background: transparent;
+  text-decoration: none;
+}
+
+.btn-outline-white:hover {
+  background-color: white;
+  color: #0F4C81;
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #0F4C81;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #718096;
+  line-height: 1.75;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(15,76,129,0.12);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 40px rgba(15,76,129,0.24);
+  transform: translateY(-4px);
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.75rem;
+  background-color: white;
+  transition: all 0.2s;
+  outline: none;
+  font-size: 0.875rem;
+  color: #1A202C;
+}
+
+.input-field::placeholder {
+  color: #A0AEC0;
+}
+
+.input-field:focus {
+  border-color: transparent;
+  ring: 2px solid #0F4C81;
+  box-shadow: 0 0 0 2px #0F4C81;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2D3748;
+  margin-bottom: 0.5rem;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient backgrounds */
+.bg-hero-gradient {
+  background: linear-gradient(135deg, rgba(15,76,129,0.92) 0%, rgba(15,76,129,0.75) 50%, rgba(244,180,0,0.3) 100%);
+}
+
+.bg-cta-gradient {
+  background: linear-gradient(135deg, #0F4C81 0%, #073860 100%);
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 8px 16px;
+  background: #0F4C81;
+  color: white;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F4C81;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #073860;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #F4B400;
+  outline-offset: 2px;
+}
