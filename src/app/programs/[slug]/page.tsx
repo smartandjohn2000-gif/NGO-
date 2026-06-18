@@ -41,10 +41,14 @@ export default async function ProgramDetail(
   const Icon = program.Icon;
   const otherPrograms = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
 
-  const galleryShots = [1, 2, 3, 4, 5, 6].map((n) => ({
-    src: `/images/programs/${program.slug}-${n}.jpg`,
-    alt: `${program.galleryAlt} ${n}`,
-  }));
+  // Build a small program gallery using the program hero plus thematic shots
+  const otherImages = programs
+    .filter((p) => p.slug !== program.slug)
+    .map((p) => p.heroImage)
+    .slice(0, 5);
+  const galleryShots = [program.heroImage, ...otherImages].map(
+    (src, i) => ({ src, alt: `${program.galleryAlt} ${i + 1}` })
+  );
 
   return (
     <>

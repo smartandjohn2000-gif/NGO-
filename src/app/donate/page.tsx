@@ -249,7 +249,7 @@ export default function DonatePage() {
           <Reveal delay={0.1}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-white/10">
               <Image
-                src="/images/donate-impact.jpg"
+                src="/images/programs/youth-empowerment.jpg"
                 alt="Children at a community program"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     author: "Communications Team",
     date: "2026-06-02",
     readingTime: "5 min",
-    image: "/images/blog/roadmap.jpg",
+    image: "/images/hero.jpg",
     featured: true,
     tags: ["strategy", "roadmap", "2026"],
   },
@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     author: "Field Team, Northern Region",
     date: "2026-05-21",
     readingTime: "6 min",
-    image: "/images/blog/amina.jpg",
+    image: "/images/programs/gender-equality.jpg",
     featured: true,
     tags: ["gender equality", "livelihoods", "story"],
   },
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     author: "Crisis Response Unit",
     date: "2026-05-09",
     readingTime: "7 min",
-    image: "/images/blog/cfs.jpg",
+    image: "/images/programs/child-protection.jpg",
     tags: ["crisis response", "child protection"],
   },
   {
@@ -68,7 +68,7 @@ export const blogPosts: BlogPost[] = [
     author: "Board of Directors",
     date: "2026-04-15",
     readingTime: "12 min",
-    image: "/images/blog/report.jpg",
+    image: "/images/who-we-are.jpg",
     tags: ["report", "transparency"],
   },
   {
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
     author: "Director of Programs",
     date: "2026-03-28",
     readingTime: "8 min",
-    image: "/images/blog/inclusion.jpg",
+    image: "/images/programs/disability-inclusion.jpg",
     tags: ["disability inclusion", "design"],
   },
   {
@@ -96,7 +96,7 @@ export const blogPosts: BlogPost[] = [
     author: "Youth Empowerment Team",
     date: "2026-03-12",
     readingTime: "4 min",
-    image: "/images/blog/youth-grad.jpg",
+    image: "/images/programs/youth-empowerment.jpg",
     tags: ["youth", "skills", "ict"],
   },
   {
@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
     author: "Communications Team",
     date: "2026-02-22",
     readingTime: "3 min",
-    image: "/images/blog/press.jpg",
+    image: "/images/programs/crisis-response.jpg",
     tags: ["press", "advocacy"],
   },
 ];

@@ -72,7 +72,7 @@ export default function AboutPage() {
           <Reveal className="lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-ink-100 shadow-xl">
               <Image
-                src="/images/about/founder.jpg"
+                src="/images/who-we-are.jpg"
                 alt="Founder of World Impact Initiative"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"

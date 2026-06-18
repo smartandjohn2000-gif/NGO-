@@ -22,7 +22,7 @@ export const events: EventItem[] = [
     location: "Toronto, ON · Fairmont Royal York",
     format: "In-person",
     category: "Fundraiser",
-    image: "/images/events/gala.jpg",
+    image: "/images/hero.jpg",
     capacity: 320,
     rsvpRequired: true,
   },
@@ -35,7 +35,7 @@ export const events: EventItem[] = [
     location: "Vancouver, BC · Stanley Park",
     format: "In-person",
     category: "Awareness",
-    image: "/images/events/walk.jpg",
+    image: "/images/programs/child-protection.jpg",
     rsvpRequired: true,
   },
   {
@@ -47,7 +47,7 @@ export const events: EventItem[] = [
     location: "Toronto, ON · Distillery District",
     format: "In-person",
     category: "Volunteer Day",
-    image: "/images/events/volunteer-day.jpg",
+    image: "/images/who-we-are.jpg",
     rsvpRequired: true,
   },
   {
@@ -59,7 +59,7 @@ export const events: EventItem[] = [
     location: "Online · Zoom",
     format: "Virtual",
     category: "Conference",
-    image: "/images/events/summit.jpg",
+    image: "/images/programs/gender-equality.jpg",
     rsvpRequired: true,
   },
   {
@@ -71,7 +71,7 @@ export const events: EventItem[] = [
     location: "Toronto, ON · 100 King St W",
     format: "In-person",
     category: "Community",
-    image: "/images/events/open-house.jpg",
+    image: "/images/programs/youth-empowerment.jpg",
   },
   {
     slug: "winter-coat-drive-2025",
@@ -82,7 +82,7 @@ export const events: EventItem[] = [
     location: "Multi-city",
     format: "In-person",
     category: "Community",
-    image: "/images/events/coat-drive.jpg",
+    image: "/images/programs/crisis-response.jpg",
   },
 ];
 
