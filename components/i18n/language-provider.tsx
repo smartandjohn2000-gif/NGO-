@@ -33,16 +33,10 @@ type LanguageProviderProps = {
 
 export function LanguageProvider({ children, defaultLanguage }: LanguageProviderProps) {
   const pathname = usePathname();
-  const [language, setLanguageState] = useState<SupportedLanguage>(defaultLanguage);
-
-  useEffect(() => {
-    const storedLanguage = normalizeLanguage(window.localStorage.getItem(LANGUAGE_STORAGE_KEY));
-    if (storedLanguage !== language) {
-      setLanguageState(storedLanguage);
-    }
-    // We only need this once on first load.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [language, setLanguageState] = useState<SupportedLanguage>(() => {
+    if (typeof window === "undefined") return defaultLanguage;
+    return normalizeLanguage(window.localStorage.getItem(LANGUAGE_STORAGE_KEY));
+  });
 
   useEffect(() => {
     document.documentElement.lang = getDocumentLang(language);
