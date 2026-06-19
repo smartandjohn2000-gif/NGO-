@@ -60,7 +60,12 @@ export default function HomePage() {
               <ButtonLink href="#impact-areas" variant="primary" size="lg">
                 Discover Our Work
               </ButtonLink>
-              <ButtonLink href="/volunteer" variant="ghost" size="lg" className="text-white">
+              <ButtonLink
+                href="/volunteer"
+                variant="ghost"
+                size="lg"
+                className="border-white/35 bg-white/10 text-white hover:border-white hover:bg-white/20"
+              >
                 Join Our Mission
               </ButtonLink>
             </div>
