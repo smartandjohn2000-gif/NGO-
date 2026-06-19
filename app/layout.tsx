@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
-import { SITE_CONFIG } from "@/lib/constants";
+import { LANGUAGE_OPTIONS, SITE_CONFIG, type SupportedLanguage } from "@/lib/constants";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { LanguageProvider } from "@/components/i18n/language-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,29 +55,42 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+function getInitialLanguage(value: string | undefined): SupportedLanguage {
+  const fallback: SupportedLanguage = "en";
+  if (!value) return fallback;
+  const supported = LANGUAGE_OPTIONS.some((option) => option.code === value);
+  return supported ? (value as SupportedLanguage) : fallback;
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const initialLanguage = getInitialLanguage(cookieStore.get("wii-language")?.value);
+
   return (
     <html
-      lang="en"
+      lang={initialLanguage === "zh" ? "zh-CN" : initialLanguage}
+      dir={initialLanguage === "ar" ? "rtl" : "ltr"}
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#F7F9FC] text-slate-800">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0F4C81]"
-        >
-          Skip to main content
-        </a>
-        <SiteHeader />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+      <body className="min-h-full overflow-x-hidden bg-[#F7F9FC] text-slate-800">
+        <LanguageProvider defaultLanguage={initialLanguage}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0F4C81]"
+          >
+            Skip to main content
+          </a>
+          <SiteHeader />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </LanguageProvider>
       </body>
     </html>
   );

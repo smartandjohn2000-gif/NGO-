@@ -10,6 +10,7 @@ type NotificationPayload = {
     | "member_registration";
   subject: string;
   replyTo?: string;
+  recipients?: string[];
   fields: Record<string, string | number | null | undefined>;
 };
 
@@ -65,7 +66,7 @@ export async function sendSubmissionNotification(payload: NotificationPayload) {
 
   const { data, error } = await resend.emails.send({
     from: fromEmail,
-    to: [SITE_CONFIG.email],
+    to: payload.recipients?.length ? payload.recipients : [SITE_CONFIG.email],
     subject: payload.subject,
     html,
     replyTo: payload.replyTo,

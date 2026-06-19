@@ -1,17 +1,39 @@
 import Link from "next/link";
-import { NAV_ITEMS, SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import { ButtonLink } from "@/components/ui/button";
+import {
+  DEPARTMENT_CONTACTS,
+  IMPACT_AREAS,
+  NAV_ITEMS,
+  SITE_CONFIG,
+  SOCIAL_LINKS,
+} from "@/lib/constants";
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-slate-200 bg-[#0F4C81] text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="space-y-3">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8">
+        <div className="space-y-4 lg:col-span-2">
           <h3 className="text-lg font-semibold">{SITE_CONFIG.name}</h3>
           <p className="text-sm leading-relaxed text-white/85">
             Advancing dignity, equality, and opportunity through community-driven programs.
           </p>
-          <p className="text-sm text-white/80">Email: {SITE_CONFIG.email}</p>
+          <p className="text-sm text-white/80">
+            Phone:{" "}
+            <a href={`tel:${SITE_CONFIG.phone.replace(/[^\d+]/g, "")}`} className="underline-offset-2 hover:underline">
+              {SITE_CONFIG.phone}
+            </a>
+          </p>
+          {DEPARTMENT_CONTACTS.map((department) => (
+            <p key={department.key} className="text-sm text-white/80">
+              {department.title}:{" "}
+              <a href={`mailto:${department.email}`} className="underline-offset-2 hover:underline">
+                {department.email}
+              </a>
+            </p>
+          ))}
           <p className="text-sm text-white/80">Location: {SITE_CONFIG.location}</p>
+          <LanguageSwitcher className="border-white/20 bg-white/5" />
         </div>
 
         <div>
@@ -19,7 +41,7 @@ export function SiteFooter() {
             Quick Links
           </h4>
           <ul className="mt-3 space-y-2">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.filter((item) => item.href !== "/donate").map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm text-white/85 transition hover:text-white">
                   {item.label}
@@ -27,31 +49,26 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+          <ButtonLink href="/donate" variant="primary" size="sm" className="mt-4">
+            Donate
+          </ButtonLink>
         </div>
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-[#F4B400]">
-            Membership
+            Impact Areas
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/85">
+            {IMPACT_AREAS.map((area) => (
+              <li key={area.slug}>
+                <Link href={`/programs/${area.slug}`} className="transition hover:text-white">
+                  {area.title}
+                </Link>
+              </li>
+            ))}
             <li>
-              <Link href="/membership/register" className="transition hover:text-white">
-                Register
-              </Link>
-            </li>
-            <li>
-              <Link href="/membership/login" className="transition hover:text-white">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link href="/membership/dashboard" className="transition hover:text-white">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin" className="transition hover:text-white">
-                Admin System
+              <Link href="/volunteer" className="transition hover:text-white">
+                Volunteer
               </Link>
             </li>
           </ul>

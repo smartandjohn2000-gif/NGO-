@@ -2,20 +2,25 @@ import { contactSchema } from "@/lib/schemas";
 import { getSupabaseAdminClientOrThrow } from "@/lib/supabase/admin";
 import { sendSubmissionNotification } from "@/lib/email";
 import { insertNotificationLog } from "@/lib/form-notifications";
+import { getDepartmentByKey, getDepartmentRecipientList } from "@/lib/contact-routing";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const parsed = contactSchema.parse(body);
     const supabase = getSupabaseAdminClientOrThrow();
+    const selectedDepartment = getDepartmentByKey(parsed.inquiryType);
+    const recipients = getDepartmentRecipientList(parsed.inquiryType);
 
     const { data: submission, error: insertError } = await supabase
       .from("contact_messages")
       .insert({
+        inquiry_type: parsed.inquiryType,
         full_name: parsed.fullName,
         email: parsed.email,
         subject: parsed.subject,
         message: parsed.message,
+        routed_email: selectedDepartment.email,
       })
       .select("id")
       .single();
@@ -27,9 +32,12 @@ export async function POST(request: Request) {
     try {
       const providerMessageId = await sendSubmissionNotification({
         formType: "contact_message",
-        subject: `New contact form submission: ${parsed.subject}`,
+        subject: `[${selectedDepartment.title}] New contact form submission: ${parsed.subject}`,
         replyTo: parsed.email,
+        recipients,
         fields: {
+          inquiry_type: selectedDepartment.title,
+          routed_email: selectedDepartment.email,
           full_name: parsed.fullName,
           email: parsed.email,
           subject: parsed.subject,

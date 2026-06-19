@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   url: "https://worldimpactinitiative.org",
   email: "info@worldimpactinitiative.org",
   location: "Canada",
-  phone: "+1 (000) 000-0000",
+  phone: "+1 (819) 700-6128",
   donationHeadline: "Support Change That Lasts",
   mission:
     "The mission of World Impact Initiative is to advance human dignity, equality, and opportunity by supporting vulnerable and underserved communities through sustainable, community-driven programs.",
@@ -26,6 +26,42 @@ export const SITE_CONFIG = {
     "community development",
   ],
 } as const;
+
+export const LANGUAGE_OPTIONS = [
+  { code: "en", label: "English" },
+  { code: "fr", label: "Français" },
+  { code: "es", label: "Español" },
+  { code: "ar", label: "العربية" },
+  { code: "zh", label: "中文" },
+] as const;
+
+export type SupportedLanguage = (typeof LANGUAGE_OPTIONS)[number]["code"];
+
+export const DEPARTMENT_CONTACTS = [
+  {
+    key: "general",
+    title: "General Inquiries",
+    email: "info@worldimpactinitiative.org",
+    purpose:
+      "General questions, volunteer inquiries, website inquiries, and public communication.",
+  },
+  {
+    key: "donor",
+    title: "Donor Inquiries",
+    email: "donors@worldimpactinitiative.org",
+    purpose:
+      "Donation assistance, tax receipts, fundraising campaigns, donor support, and contribution inquiries.",
+  },
+  {
+    key: "partnership",
+    title: "Partnership Inquiries",
+    email: "partnerships@worldimpactinitiative.org",
+    purpose:
+      "Corporate partnerships, nonprofit collaborations, sponsorships, grants, strategic partnerships, and community initiatives.",
+  },
+] as const;
+
+export type ContactDepartmentKey = (typeof DEPARTMENT_CONTACTS)[number]["key"];
 
 export const NAV_ITEMS = [
   { label: "Home", href: "/" },

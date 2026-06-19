@@ -33,6 +33,8 @@ create table if not exists public.volunteer_applications (
 
 create table if not exists public.contact_messages (
   id uuid primary key default gen_random_uuid(),
+  inquiry_type text not null check (inquiry_type in ('general', 'donor', 'partnership')),
+  routed_email text not null,
   full_name text not null,
   email text not null,
   subject text not null,

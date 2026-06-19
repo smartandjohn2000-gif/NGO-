@@ -79,6 +79,8 @@ export type Database = {
       contact_messages: {
         Row: {
           id: string;
+          inquiry_type: "general" | "donor" | "partnership";
+          routed_email: string;
           full_name: string;
           email: string;
           subject: string;
@@ -86,12 +88,16 @@ export type Database = {
           created_at: string;
         };
         Insert: {
+          inquiry_type: "general" | "donor" | "partnership";
+          routed_email: string;
           full_name: string;
           email: string;
           subject: string;
           message: string;
         };
         Update: {
+          inquiry_type?: "general" | "donor" | "partnership";
+          routed_email?: string;
           subject?: string;
           message?: string;
         };

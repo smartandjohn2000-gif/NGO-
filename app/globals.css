@@ -19,6 +19,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), Arial, sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 h1,
@@ -30,6 +31,13 @@ h4 {
 
 * {
   scroll-margin-top: 110px;
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
 }
 
 .container-shell {

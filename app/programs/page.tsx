@@ -5,7 +5,8 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { DynamicIcon } from "@/components/ui/icon";
 import { PageHero } from "@/components/sections/page-hero";
-import { IMPACT_AREAS } from "@/lib/constants";
+import { ProgramsCarousel } from "@/components/sections/programs-carousel";
+import { IMPACT_AREAS, PROGRAMS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Programs",
@@ -24,6 +25,18 @@ export default function ProgramsPage() {
       />
 
       <div className="container-shell py-14 md:py-20">
+        <AnimatedSection className="mb-12">
+          <SectionHeading
+            eyebrow="Interactive Programs"
+            title="Slide through our six impact areas"
+            description="Swipe on mobile, use navigation arrows, or let autoplay guide your exploration."
+            align="center"
+          />
+          <div className="mt-8">
+            <ProgramsCarousel programs={PROGRAMS} />
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection>
           <SectionHeading
             eyebrow="Program Portfolio"

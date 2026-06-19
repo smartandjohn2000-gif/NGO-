@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactInput } from "@/lib/schemas";
+import { DEPARTMENT_CONTACTS } from "@/lib/constants";
 
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm outline-none transition focus:border-[#0F4C81] focus:ring-2 focus:ring-[#0F4C81]/20";
@@ -19,6 +20,7 @@ export function ContactForm() {
     reset,
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
+    defaultValues: { inquiryType: "general" },
   });
 
   const onSubmit = async (values: ContactInput) => {
@@ -45,6 +47,21 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 rounded-2xl bg-white p-6 shadow-lg" noValidate>
       <h3 className="text-xl font-semibold text-[#0F4C81]">Send us a message</h3>
+      <div>
+        <label className="mb-2 block text-sm font-semibold text-[#0F4C81]" htmlFor="contact-type">
+          Inquiry Type
+        </label>
+        <select id="contact-type" {...register("inquiryType")} className={inputClass}>
+          {DEPARTMENT_CONTACTS.map((department) => (
+            <option key={department.key} value={department.key}>
+              {department.title}
+            </option>
+          ))}
+        </select>
+        {errors.inquiryType ? (
+          <p className="mt-1 text-xs text-red-600">{errors.inquiryType.message}</p>
+        ) : null}
+      </div>
       <div>
         <label className="mb-2 block text-sm font-semibold text-[#0F4C81]" htmlFor="contact-name">
           Full Name

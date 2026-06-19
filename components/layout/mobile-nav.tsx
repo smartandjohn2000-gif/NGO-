@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { NAV_ITEMS } from "@/lib/constants";
+import { Mail, Menu, PhoneCall, X } from "lucide-react";
+import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -25,8 +26,11 @@ export function MobileNav() {
       {open ? (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-0 top-20 z-50 border-y border-[#0F4C81]/10 bg-white/98 px-6 py-6 shadow-xl backdrop-blur"
+          className="absolute inset-x-0 top-28 z-50 border-y border-[#0F4C81]/10 bg-white/98 px-6 py-6 shadow-xl backdrop-blur"
         >
+          <div className="mb-4 rounded-xl border border-[#0F4C81]/10 bg-[#F7F9FC] p-3">
+            <LanguageSwitcher className="w-full justify-between border-[#0F4C81]/20 bg-white text-[#0F4C81]" />
+          </div>
           <ul className="space-y-3">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
@@ -44,6 +48,16 @@ export function MobileNav() {
             <ButtonLink href="/donate" variant="primary" className="w-full">
               Donate
             </ButtonLink>
+          </div>
+          <div className="mt-4 space-y-2 rounded-xl border border-[#0F4C81]/10 bg-[#F7F9FC] p-3 text-xs text-slate-700">
+            <a href={`tel:${SITE_CONFIG.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center gap-2">
+              <PhoneCall size={13} className="text-[#0F4C81]" />
+              {SITE_CONFIG.phone}
+            </a>
+            <a href={`mailto:${SITE_CONFIG.email}`} className="inline-flex items-center gap-2">
+              <Mail size={13} className="text-[#0F4C81]" />
+              {SITE_CONFIG.email}
+            </a>
           </div>
         </div>
       ) : null}

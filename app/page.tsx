@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
-import { DynamicIcon } from "@/components/ui/icon";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { IMPACT_AREAS, SITE_CONFIG } from "@/lib/constants";
+import { ProgramsCarousel } from "@/components/sections/programs-carousel";
+import { IMPACT_AREAS, PROGRAMS, SITE_CONFIG } from "@/lib/constants";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -59,25 +58,20 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Our Impact Areas"
           title="Programs built for sustainable, community-driven outcomes"
-          description="We work across six strategic areas that strengthen protection systems, expand opportunity, and improve long-term resilience."
+          description="Explore our premium interactive portfolio with swipe navigation, autoplay, and direct actions."
           align="center"
         />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {IMPACT_AREAS.map((area, index) => (
-            <article
+        <div className="mt-10">
+          <ProgramsCarousel programs={PROGRAMS} />
+        </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-2 text-center">
+          {IMPACT_AREAS.map((area) => (
+            <span
               key={area.slug}
-              className="surface-card group p-6 transition hover:-translate-y-1 hover:shadow-xl"
-              style={{ transitionDelay: `${index * 40}ms` }}
+              className="rounded-full border border-[#0F4C81]/12 bg-white px-3 py-1 text-xs font-semibold text-[#0F4C81]"
             >
-              <div className="inline-flex size-11 items-center justify-center rounded-xl bg-[#0F4C81]/10 text-[#0F4C81]">
-                <DynamicIcon name={area.icon} size={22} />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold text-[#0F4C81]">{area.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{area.description}</p>
-              <ButtonLink href={`/programs/${area.slug}`} variant="ghost" className="mt-5 w-fit">
-                Learn More <ArrowRight className="ml-2" size={16} />
-              </ButtonLink>
-            </article>
+              {area.title}
+            </span>
           ))}
         </div>
       </AnimatedSection>
