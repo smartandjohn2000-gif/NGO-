@@ -54,10 +54,10 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
           alt={`${program.title} hero image`}
           fill
           priority
-          className="object-cover opacity-30"
+          className="object-cover opacity-66"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81] via-[#0F4C81]/90 to-[#0F4C81]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/68 via-[#0F4C81]/52 to-[#0F4C81]/44" />
         <div className="container-shell relative py-20 md:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#F4B400]">
             Program

@@ -30,10 +30,10 @@ export default function HomePage() {
           alt="Volunteers supporting families through humanitarian programs."
           fill
           priority
-          className="object-cover opacity-30"
+          className="object-cover opacity-68"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81] via-[#0F4C81]/90 to-[#0F4C81]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/68 via-[#0F4C81]/52 to-[#0F4C81]/44" />
         <div className="container-shell relative py-24 md:py-36">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F4B400]">
             Canadian Nonprofit Organization
