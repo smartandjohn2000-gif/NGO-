@@ -29,32 +29,47 @@ export default function HomePage() {
           alt="Volunteers supporting families through humanitarian programs."
           fill
           priority
-          className="object-cover opacity-68"
+          className="object-cover opacity-45"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/68 via-[#0F4C81]/52 to-[#0F4C81]/44" />
-        <div className="container-shell relative py-24 md:py-36">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F4B400]">
-            Canadian Nonprofit Organization
-          </p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
-            {SITE_CONFIG.heroHeadline}
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-            {SITE_CONFIG.heroSubheadline}
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink href="/donate" variant="primary" size="lg">
-              Donate Now
-            </ButtonLink>
-            <ButtonLink href="/volunteer" variant="ghost" size="lg" className="text-white">
-              Become a Volunteer
-            </ButtonLink>
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/home-hero.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/home-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/74 via-[#0F4C81]/56 to-[#0F4C81]/44" />
+        <div className="container-shell relative flex min-h-[calc(100vh-7rem)] items-center py-20 md:py-28">
+          <div className="w-full max-w-5xl rounded-[2rem] border border-white/25 bg-white/10 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F4B400]">
+              Canadian Nonprofit Organization
+            </p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight [text-shadow:0_12px_42px_rgba(15,76,129,0.5)] md:text-6xl">
+              {SITE_CONFIG.heroHeadline}
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+              {SITE_CONFIG.heroSubheadline}
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <ButtonLink href="#impact-areas" variant="primary" size="lg">
+                Discover Our Work
+              </ButtonLink>
+              <ButtonLink href="/volunteer" variant="ghost" size="lg" className="text-white">
+                Join Our Mission
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>
 
-      <AnimatedSection className="container-shell py-16 md:py-24">
+      <section id="impact-areas">
+        <AnimatedSection className="container-shell py-16 md:py-24">
         <SectionHeading
           eyebrow="Our Impact Areas"
           title="Programs built for sustainable, community-driven outcomes"
@@ -74,7 +89,8 @@ export default function HomePage() {
             </span>
           ))}
         </div>
-      </AnimatedSection>
+        </AnimatedSection>
+      </section>
 
       <AnimatedSection className="container-shell py-4 md:py-10">
         <div className="grid gap-6 rounded-3xl bg-white p-8 shadow-lg md:grid-cols-2 md:p-12">
