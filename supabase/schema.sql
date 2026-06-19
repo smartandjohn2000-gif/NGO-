@@ -42,6 +42,44 @@ create table if not exists public.contact_messages (
   created_at timestamptz not null default now()
 );
 
+alter table public.contact_messages
+  add column if not exists inquiry_type text;
+
+alter table public.contact_messages
+  add column if not exists routed_email text;
+
+update public.contact_messages
+set inquiry_type = coalesce(inquiry_type, 'general'),
+    routed_email = coalesce(routed_email, 'info@worldimpactinitiative.org')
+where inquiry_type is null
+   or routed_email is null;
+
+alter table public.contact_messages
+  alter column inquiry_type set default 'general';
+
+alter table public.contact_messages
+  alter column routed_email set default 'info@worldimpactinitiative.org';
+
+alter table public.contact_messages
+  alter column inquiry_type set not null;
+
+alter table public.contact_messages
+  alter column routed_email set not null;
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conname = 'contact_messages_inquiry_type_check'
+  ) then
+    alter table public.contact_messages
+      add constraint contact_messages_inquiry_type_check
+      check (inquiry_type in ('general', 'donor', 'partnership'));
+  end if;
+end
+$$;
+
 create table if not exists public.event_rsvps (
   id uuid primary key default gen_random_uuid(),
   event_id text not null,

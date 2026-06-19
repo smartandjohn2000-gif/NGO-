@@ -59,6 +59,11 @@ export function SiteFooter() {
             Impact Areas
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/85">
+            <li>
+              <Link href="/programs" className="font-semibold transition hover:text-white">
+                Programs
+              </Link>
+            </li>
             {IMPACT_AREAS.map((area) => (
               <li key={area.slug}>
                 <Link href={`/programs/${area.slug}`} className="transition hover:text-white">

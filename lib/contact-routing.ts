@@ -6,6 +6,5 @@ export function getDepartmentByKey(key: ContactDepartmentKey) {
 
 export function getDepartmentRecipientList(key: ContactDepartmentKey) {
   const selectedDepartment = getDepartmentByKey(key);
-  const recipients = new Set<string>([DEPARTMENT_CONTACTS[0].email, selectedDepartment.email]);
-  return Array.from(recipients);
+  return [selectedDepartment.email];
 }
