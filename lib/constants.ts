@@ -143,7 +143,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Community dialogue", src: "/images/gallery-1.jpg", category: "gender" },
       { type: "photo", title: "Safe-space mentoring", src: "/images/gallery-2.jpg", category: "gender" },
-      { type: "video", title: "Leadership forum", src: "https://www.youtube.com/embed/tgbNymZ7vqY", category: "gender" },
     ],
   },
   {
@@ -184,7 +183,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Rights education workshop", src: "/images/gallery-3.jpg", category: "child" },
       { type: "photo", title: "Caregiver support session", src: "/images/gallery-4.jpg", category: "child" },
-      { type: "video", title: "Children's forum", src: "https://www.youtube.com/embed/dQw4w9WgXcQ", category: "child" },
     ],
   },
   {
@@ -225,7 +223,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Technical training lab", src: "/images/gallery-5.jpg", category: "youth" },
       { type: "photo", title: "Career mentorship", src: "/images/gallery-6.jpg", category: "youth" },
-      { type: "video", title: "Innovation challenge", src: "https://www.youtube.com/embed/OY4n4M7CVyY", category: "youth" },
     ],
   },
   {
@@ -266,7 +263,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Accessible classroom setup", src: "/images/gallery-7.jpg", category: "disability" },
       { type: "photo", title: "Community inclusion dialogue", src: "/images/gallery-8.jpg", category: "disability" },
-      { type: "video", title: "Accessibility innovation", src: "https://www.youtube.com/embed/K4TOrB7at0Y", category: "disability" },
     ],
   },
   {
@@ -307,7 +303,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Community health session", src: "/images/gallery-9.jpg", category: "health" },
       { type: "photo", title: "Inclusive classroom activity", src: "/images/gallery-10.jpg", category: "health" },
-      { type: "video", title: "Parent engagement forum", src: "https://www.youtube.com/embed/C0DPdy98e4c", category: "health" },
     ],
   },
   {
@@ -348,7 +343,6 @@ export const PROGRAMS: ProgramContent[] = [
     gallery: [
       { type: "photo", title: "Emergency distribution", src: "/images/gallery-11.jpg", category: "crisis" },
       { type: "photo", title: "Community recovery workshop", src: "/images/gallery-12.jpg", category: "crisis" },
-      { type: "video", title: "Rapid response coordination", src: "https://www.youtube.com/embed/G9TdA8d5aaU", category: "crisis" },
     ],
   },
 ];
@@ -505,9 +499,6 @@ export const GALLERY_ITEMS = [
   { id: "g-3", title: "Inclusion training", type: "photo", category: "inclusion", src: "/images/gallery-7.jpg" },
   { id: "g-4", title: "Health education day", type: "photo", category: "health", src: "/images/gallery-9.jpg" },
   { id: "g-5", title: "Rapid response deployment", type: "photo", category: "humanitarian", src: "/images/gallery-11.jpg" },
-  { id: "g-6", title: "Community impact story", type: "video", category: "video", src: "https://www.youtube.com/embed/tgbNymZ7vqY" },
-  { id: "g-7", title: "Volunteer reflections", type: "video", category: "video", src: "https://www.youtube.com/embed/C0DPdy98e4c" },
-  { id: "g-8", title: "Programs highlights", type: "video", category: "video", src: "https://www.youtube.com/embed/OY4n4M7CVyY" },
 ] as const;
 
 export const TESTIMONIALS = [
