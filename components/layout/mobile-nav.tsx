@@ -37,7 +37,7 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 bg-white p-2 text-slate-800 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6B3C]"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 bg-white p-2 text-slate-800 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
@@ -72,7 +72,7 @@ export function MobileNav() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6B3C]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
               aria-label="Close navigation menu"
             >
               <X size={22} />
@@ -111,7 +111,7 @@ export function MobileNav() {
             <Link
               href="/donate"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#1A6B3C] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#15542f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6B3C]"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#2FAE66] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#258c52] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
             >
               Donate
             </Link>

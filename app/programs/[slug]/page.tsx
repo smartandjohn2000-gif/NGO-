@@ -70,16 +70,16 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
           alt={`${program.title} hero image`}
           fill
           priority
-          className="object-cover opacity-72"
+          className="object-cover opacity-82"
           sizes="100vw"
         />
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(90deg, ${hexToRgba(theme.strong, 0.88)} 0%, ${hexToRgba(
+            background: `linear-gradient(90deg, ${hexToRgba(theme.strong, 0.6)} 0%, ${hexToRgba(
               theme.accent,
-              0.56,
-            )} 52%, ${hexToRgba(theme.strong, 0.38)} 100%)`,
+              0.3,
+            )} 52%, ${hexToRgba(theme.strong, 0.18)} 100%)`,
           }}
         />
         <div className="container-shell relative py-20 md:py-28">
@@ -92,9 +92,6 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
           <p className="mt-5 max-w-3xl text-base text-white/90 md:text-lg">
             {program.heroSummary}
           </p>
-          <div className="mt-6 inline-flex rounded-full border px-4 py-2 text-sm font-semibold" style={{ borderColor: theme.soft, backgroundColor: hexToRgba(theme.soft, 0.2), color: theme.soft }}>
-            Theme Accent: {theme.accent}
-          </div>
         </div>
       </section>
 

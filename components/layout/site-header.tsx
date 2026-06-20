@@ -12,7 +12,7 @@ const DISPLAY_LABELS: Record<string, string> = {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 border-t-4 border-t-[#1A6B3C] bg-white text-slate-800 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white text-slate-800 shadow-sm">
       <div className="mx-auto hidden h-20 w-full max-w-7xl items-center gap-6 px-4 md:flex md:px-6 lg:px-8">
         <Link
           href="/"
@@ -36,7 +36,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm font-semibold text-slate-700 underline-offset-8 decoration-2 decoration-transparent transition hover:text-slate-900 hover:underline hover:decoration-[#1A6B3C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A6B3C]"
+                  className="text-sm font-semibold text-slate-700 underline-offset-8 decoration-2 decoration-transparent transition hover:text-slate-900 hover:underline hover:decoration-[#2FAE66] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
                 >
                   {DISPLAY_LABELS[item.label] ?? item.label}
                 </Link>
@@ -50,7 +50,7 @@ export function SiteHeader() {
             href="/donate"
             variant="secondary"
             size="sm"
-            className="rounded-lg bg-[#1A6B3C] px-4 text-white hover:bg-[#15542f] hover:text-white focus-visible:ring-[#1A6B3C]"
+            className="rounded-lg bg-[#2FAE66] px-4 text-white hover:bg-[#258c52] hover:text-white focus-visible:ring-[#2FAE66]"
           >
             Donate
           </ButtonLink>

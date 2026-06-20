@@ -2,16 +2,9 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { HeroSlider } from "@/components/sections/hero-slider";
-import { ProgramsCarousel } from "@/components/sections/programs-carousel";
-import {
-  HERO_SLIDES,
-  IMPACT_AREAS,
-  IMPACT_THEMES,
-  PROGRAMS,
-  SITE_CONFIG,
-  TESTIMONIALS,
-} from "@/lib/constants";
+import { HomeHeroParallax } from "@/components/sections/home-hero-parallax";
+import { ProgramsStackedSections } from "@/components/sections/programs-stacked-sections";
+import { IMPACT_THEMES, PROGRAMS, SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -39,42 +32,10 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroSlider slides={HERO_SLIDES} />
-
-      <section id="impact-areas">
-        <AnimatedSection className="container-shell py-16 md:py-24">
-          <SectionHeading
-            eyebrow="Our Impact Areas"
-            title="Programs built for sustainable, community-driven outcomes"
-            description="Explore our premium interactive portfolio with swipe navigation, autoplay, and direct actions."
-            align="center"
-          />
-          <div className="mt-10">
-            <ProgramsCarousel programs={PROGRAMS} />
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-center">
-            {IMPACT_AREAS.map((area) => {
-              const theme = IMPACT_THEMES[area.slug];
-              return (
-                <span
-                  key={area.slug}
-                  className="rounded-full border px-4 py-2 text-sm font-semibold"
-                  style={{
-                    borderColor: theme.ring,
-                    backgroundColor: theme.soft,
-                    color: theme.strong,
-                  }}
-                >
-                  {area.title}
-                </span>
-              );
-            })}
-          </div>
-        </AnimatedSection>
-      </section>
+      <HomeHeroParallax />
 
       <AnimatedSection className="container-shell py-4 md:py-10">
-        <div className="grid gap-6 rounded-3xl border border-[#BFDBFE] bg-[#EFF6FF] p-8 shadow-lg md:grid-cols-2 md:p-12">
+        <div className="grid gap-6 rounded-3xl border border-[#CFE7FF] bg-gradient-to-br from-[#FFFFFF] to-[#EFF7FF] p-8 shadow-sm md:grid-cols-2 md:p-12">
           <div className="space-y-4">
             <SectionHeading
               eyebrow="Who We Are"
@@ -91,17 +52,29 @@ export default function HomePage() {
             </p>
           </div>
           <div className="space-y-6">
-            <div className="rounded-2xl border border-[#7DD3FC]/50 bg-white p-6">
+            <div className="rounded-2xl border border-[#BFDFFF] bg-white p-6">
               <h3 className="text-lg font-semibold text-[#0F4C81]">Mission</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.mission}</p>
             </div>
-            <div className="rounded-2xl border border-[#5EEAD4]/50 bg-white p-6">
+            <div className="rounded-2xl border border-[#CBEBD8] bg-white p-6">
               <h3 className="text-lg font-semibold text-[#0F4C81]">Vision</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.vision}</p>
             </div>
           </div>
         </div>
       </AnimatedSection>
+
+      <section id="impact-areas" className="container-shell py-10 md:py-16">
+        <SectionHeading
+          eyebrow="Our Impact Areas"
+          title="Programs and initiatives centered on people and communities"
+          description="Each impact area is presented with clear goals, real stories, and practical actions."
+          align="center"
+        />
+        <div className="mt-8">
+          <ProgramsStackedSections programs={PROGRAMS} />
+        </div>
+      </section>
 
       <AnimatedSection className="container-shell py-8 md:py-14">
         <SectionHeading
@@ -180,7 +153,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       <AnimatedSection className="container-shell py-8 md:py-14">
-        <div className="rounded-3xl border border-[#86EFAC]/50 bg-[#F0FDF4] p-8 shadow-sm md:p-12">
+        <div className="rounded-3xl border border-[#BFE7CF] bg-[#F6FFF9] p-8 shadow-sm md:p-12">
           <SectionHeading
             eyebrow="Volunteer Opportunities"
             title="Join our mission with your skills and time"
