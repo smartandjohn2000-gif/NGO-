@@ -23,13 +23,13 @@ export function PageHero({
         alt=""
         fill
         priority
-        className="object-cover opacity-65"
+        className="object-cover opacity-68"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/68 via-[#0F4C81]/52 to-[#0F4C81]/44" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/75 via-[#0B6E8A]/52 to-[#0F4C81]/35" />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <h1 className="max-w-4xl text-3xl font-bold leading-tight md:text-5xl">{title}</h1>
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/90 md:text-xl">
+        <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">{title}</h1>
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/95 md:text-[1.3rem]">
           {subtitle}
         </p>
         {primaryAction || secondaryAction ? (

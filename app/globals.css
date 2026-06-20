@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f9fc;
-  --foreground: #1e293b;
+  --background: #f6fbff;
+  --foreground: #0f172a;
   --brand-blue: #0f4c81;
   --brand-gold: #f4b400;
+  --accent-green: #22c55e;
+  --accent-orange: #f97316;
+  --accent-teal: #14b8a6;
 }
 
 @theme inline {
@@ -18,8 +21,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+html {
+  font-size: clamp(100%, 0.35vw + 99%, 112.5%);
 }
 
 h1,
@@ -27,6 +36,11 @@ h2,
 h3,
 h4 {
   font-family: var(--font-lora), Georgia, serif;
+}
+
+p,
+li {
+  font-size: 1em;
 }
 
 * {
@@ -38,6 +52,22 @@ img,
 video,
 iframe {
   max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid #f4b400;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .container-shell {

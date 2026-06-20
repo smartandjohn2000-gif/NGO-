@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { DynamicIcon } from "@/components/ui/icon";
 import { PageHero } from "@/components/sections/page-hero";
 import { ProgramsCarousel } from "@/components/sections/programs-carousel";
-import { IMPACT_AREAS, PROGRAMS } from "@/lib/constants";
+import { IMPACT_AREAS, IMPACT_THEMES, PROGRAMS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Programs",
@@ -45,21 +45,34 @@ export default function ProgramsPage() {
             align="center"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {IMPACT_AREAS.map((area) => (
-              <article key={area.slug} className="surface-card p-6">
-                <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#0F4C81]/10 text-[#0F4C81]">
+            {IMPACT_AREAS.map((area) => {
+              const theme = IMPACT_THEMES[area.slug];
+              return (
+              <article
+                key={area.slug}
+                className="surface-card border p-6"
+                style={{ borderColor: theme.ring, backgroundColor: theme.soft }}
+              >
+                <div
+                  className="inline-flex size-10 items-center justify-center rounded-xl"
+                  style={{ backgroundColor: theme.ring, color: theme.strong }}
+                >
                   <DynamicIcon name={area.icon} size={20} />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-[#0F4C81]">{area.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{area.description}</p>
+                <h3 className="mt-4 text-xl font-semibold" style={{ color: theme.strong }}>
+                  {area.title}
+                </h3>
+                <p className="mt-2 text-lg text-slate-700">{area.description}</p>
                 <Link
                   href={`/programs/${area.slug}`}
-                  className="mt-5 inline-flex items-center text-sm font-semibold text-[#0F4C81]"
+                  className="mt-5 inline-flex items-center text-base font-semibold"
+                  style={{ color: theme.strong }}
                 >
                   View program <ArrowRight size={16} className="ml-2" />
                 </Link>
               </article>
-            ))}
+            );
+            })}
           </div>
         </AnimatedSection>
       </div>

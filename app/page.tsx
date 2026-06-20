@@ -1,10 +1,17 @@
-import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { CtaBanner } from "@/components/sections/cta-banner";
+import { HeroSlider } from "@/components/sections/hero-slider";
 import { ProgramsCarousel } from "@/components/sections/programs-carousel";
-import { IMPACT_AREAS, PROGRAMS, SITE_CONFIG } from "@/lib/constants";
+import {
+  HERO_SLIDES,
+  IMPACT_AREAS,
+  IMPACT_THEMES,
+  PROGRAMS,
+  SITE_CONFIG,
+  TESTIMONIALS,
+} from "@/lib/constants";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -21,91 +28,60 @@ const organizationSchema = {
 };
 
 export default function HomePage() {
+  const sampleStats = PROGRAMS.flatMap((program) =>
+    program.impactStats.slice(0, 1).map((stat) => ({
+      ...stat,
+      programTitle: program.title,
+      slug: program.slug,
+      theme: IMPACT_THEMES[program.slug],
+    })),
+  ).slice(0, 6);
+
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-[#0F4C81] text-white">
-        <Image
-          src="/images/home-hero.jpg"
-          alt="Volunteers supporting families through humanitarian programs."
-          fill
-          priority
-          className="object-cover opacity-45"
-          sizes="100vw"
-        />
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/images/home-hero.jpg"
-          aria-hidden="true"
-        >
-          <source src="/videos/home-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/74 via-[#0F4C81]/56 to-[#0F4C81]/44" />
-        <div className="container-shell relative flex min-h-[calc(100vh-7rem)] items-center py-20 md:py-28">
-          <div className="w-full max-w-5xl rounded-[2rem] border border-white/25 bg-white/10 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#F4B400]">
-              Canadian Nonprofit Organization
-            </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight [text-shadow:0_12px_42px_rgba(15,76,129,0.5)] md:text-6xl">
-              {SITE_CONFIG.heroHeadline}
-            </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
-              {SITE_CONFIG.heroSubheadline}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink href="#impact-areas" variant="primary" size="lg">
-                Discover Our Work
-              </ButtonLink>
-              <ButtonLink
-                href="/volunteer"
-                variant="ghost"
-                size="lg"
-                className="border-white/35 bg-white/10 text-white hover:border-white hover:bg-white/20"
-              >
-                Join Our Mission
-              </ButtonLink>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider slides={HERO_SLIDES} />
 
       <section id="impact-areas">
         <AnimatedSection className="container-shell py-16 md:py-24">
-        <SectionHeading
-          eyebrow="Our Impact Areas"
-          title="Programs built for sustainable, community-driven outcomes"
-          description="Explore our premium interactive portfolio with swipe navigation, autoplay, and direct actions."
-          align="center"
-        />
-        <div className="mt-10">
-          <ProgramsCarousel programs={PROGRAMS} />
-        </div>
-        <div className="mt-8 flex flex-wrap justify-center gap-2 text-center">
-          {IMPACT_AREAS.map((area) => (
-            <span
-              key={area.slug}
-              className="rounded-full border border-[#0F4C81]/12 bg-white px-3 py-1 text-xs font-semibold text-[#0F4C81]"
-            >
-              {area.title}
-            </span>
-          ))}
-        </div>
+          <SectionHeading
+            eyebrow="Our Impact Areas"
+            title="Programs built for sustainable, community-driven outcomes"
+            description="Explore our premium interactive portfolio with swipe navigation, autoplay, and direct actions."
+            align="center"
+          />
+          <div className="mt-10">
+            <ProgramsCarousel programs={PROGRAMS} />
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-center">
+            {IMPACT_AREAS.map((area) => {
+              const theme = IMPACT_THEMES[area.slug];
+              return (
+                <span
+                  key={area.slug}
+                  className="rounded-full border px-4 py-2 text-sm font-semibold"
+                  style={{
+                    borderColor: theme.ring,
+                    backgroundColor: theme.soft,
+                    color: theme.strong,
+                  }}
+                >
+                  {area.title}
+                </span>
+              );
+            })}
+          </div>
         </AnimatedSection>
       </section>
 
       <AnimatedSection className="container-shell py-4 md:py-10">
-        <div className="grid gap-6 rounded-3xl bg-white p-8 shadow-lg md:grid-cols-2 md:p-12">
+        <div className="grid gap-6 rounded-3xl border border-[#BFDBFE] bg-[#EFF6FF] p-8 shadow-lg md:grid-cols-2 md:p-12">
           <div className="space-y-4">
             <SectionHeading
               eyebrow="Who We Are"
               title="A trusted partner for inclusive community development"
               description="World Impact Initiative is a Canadian nonprofit organization committed to empowering individuals and communities facing social, economic, and humanitarian challenges."
             />
-            <p className="text-slate-600">
+            <p className="text-lg text-slate-700">
               We believe lasting change begins with people and is strengthened
               through partnership, inclusion, opportunity, and volunteerism.
               Our work focuses on protecting human rights, supporting vulnerable
@@ -115,14 +91,105 @@ export default function HomePage() {
             </p>
           </div>
           <div className="space-y-6">
-            <div className="rounded-2xl border border-[#0F4C81]/10 bg-[#F7F9FC] p-6">
+            <div className="rounded-2xl border border-[#7DD3FC]/50 bg-white p-6">
               <h3 className="text-lg font-semibold text-[#0F4C81]">Mission</h3>
-              <p className="mt-2 text-sm text-slate-600">{SITE_CONFIG.mission}</p>
+              <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.mission}</p>
             </div>
-            <div className="rounded-2xl border border-[#0F4C81]/10 bg-[#F7F9FC] p-6">
+            <div className="rounded-2xl border border-[#5EEAD4]/50 bg-white p-6">
               <h3 className="text-lg font-semibold text-[#0F4C81]">Vision</h3>
-              <p className="mt-2 text-sm text-slate-600">{SITE_CONFIG.vision}</p>
+              <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.vision}</p>
             </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="container-shell py-8 md:py-14">
+        <SectionHeading
+          eyebrow="Impact Statistics"
+          title="Data-backed progress across every impact area"
+          description="Our programs combine measurable outcomes with dignity-centered delivery."
+          align="center"
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {sampleStats.map((stat) => (
+            <article
+              key={`${stat.slug}-${stat.label}`}
+              className="rounded-2xl border bg-white p-5 shadow-sm"
+              style={{ borderColor: stat.theme.ring, backgroundColor: stat.theme.soft }}
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.1em]" style={{ color: stat.theme.strong }}>
+                {stat.programTitle}
+              </p>
+              <p className="mt-3 text-3xl font-bold" style={{ color: stat.theme.accent }}>
+                {stat.value}
+              </p>
+              <p className="mt-2 text-lg text-slate-700">{stat.label}</p>
+            </article>
+          ))}
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="container-shell py-8 md:py-14">
+        <SectionHeading
+          eyebrow="Beneficiary Stories"
+          title="Human stories behind measurable impact"
+          description="Each story reflects resilience, dignity, and community-driven change."
+          align="center"
+        />
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          {PROGRAMS.slice(0, 3).map((program) => {
+            const theme = IMPACT_THEMES[program.slug];
+            return (
+              <article
+                key={program.slug}
+                className="rounded-2xl border bg-white p-6 shadow-md"
+                style={{ borderColor: theme.ring }}
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: theme.strong }}>
+                  {program.title}
+                </p>
+                <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                  “{program.beneficiaryStory.quote}”
+                </p>
+                <p className="mt-4 text-base font-semibold text-slate-900">
+                  {program.beneficiaryStory.name}
+                </p>
+                <p className="text-base text-slate-600">{program.beneficiaryStory.location}</p>
+              </article>
+            );
+          })}
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="container-shell py-8 md:py-14">
+        <SectionHeading
+          eyebrow="Partners & Supporters"
+          title="Collaboration powers lasting transformation"
+          description="We work with community groups, institutions, and supporters committed to equitable impact."
+          align="center"
+        />
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {TESTIMONIALS.map((testimonial) => (
+            <article key={testimonial.name} className="rounded-2xl border border-[#FDBA74]/45 bg-[#FFF7ED] p-6 shadow-sm">
+              <p className="text-lg leading-relaxed text-slate-700">“{testimonial.quote}”</p>
+              <p className="mt-4 text-base font-semibold text-[#9A3412]">{testimonial.name}</p>
+              <p className="text-base text-slate-600">{testimonial.role}</p>
+            </article>
+          ))}
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="container-shell py-8 md:py-14">
+        <div className="rounded-3xl border border-[#86EFAC]/50 bg-[#F0FDF4] p-8 shadow-sm md:p-12">
+          <SectionHeading
+            eyebrow="Volunteer Opportunities"
+            title="Join our mission with your skills and time"
+            description="Support safe, inclusive, and resilient communities by volunteering with World Impact Initiative."
+          />
+          <div className="mt-6">
+            <ButtonLink href="/volunteer" variant="secondary" size="lg">
+              Become a Volunteer
+            </ButtonLink>
           </div>
         </div>
       </AnimatedSection>

@@ -122,6 +122,127 @@ export const IMPACT_AREAS = [
 
 export type ProgramSlug = (typeof IMPACT_AREAS)[number]["slug"];
 
+export type ImpactTheme = {
+  accent: string;
+  soft: string;
+  strong: string;
+  ring: string;
+};
+
+export const IMPACT_THEMES: Record<ProgramSlug, ImpactTheme> = {
+  "gender-equality-protection": {
+    accent: "#7C3AED",
+    soft: "#F3E8FF",
+    strong: "#5B21B6",
+    ring: "rgba(124,58,237,0.35)",
+  },
+  "child-protection-human-rights": {
+    accent: "#0EA5E9",
+    soft: "#E0F2FE",
+    strong: "#0369A1",
+    ring: "rgba(14,165,233,0.35)",
+  },
+  "youth-empowerment-technical-skills-training": {
+    accent: "#F97316",
+    soft: "#FFF7ED",
+    strong: "#C2410C",
+    ring: "rgba(249,115,22,0.35)",
+  },
+  "disability-inclusion-accessibility": {
+    accent: "#14B8A6",
+    soft: "#F0FDFA",
+    strong: "#0F766E",
+    ring: "rgba(20,184,166,0.35)",
+  },
+  "health-services-inclusive-education": {
+    accent: "#22C55E",
+    soft: "#F0FDF4",
+    strong: "#15803D",
+    ring: "rgba(34,197,94,0.35)",
+  },
+  "crisis-response-humanitarian-relief": {
+    accent: "#F4B400",
+    soft: "#FFF8DB",
+    strong: "#A16207",
+    ring: "rgba(244,180,0,0.35)",
+  },
+};
+
+export function getImpactThemeBySlug(slug: ProgramSlug) {
+  return IMPACT_THEMES[slug];
+}
+
+export type HeroSlide = {
+  id: string;
+  headline: string;
+  supporting: string;
+  focus: string;
+  ctaLabel: string;
+  ctaHref: string;
+  mediaType: "image" | "video";
+  mediaSrc: string;
+  mediaPoster?: string;
+};
+
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: "hero-1",
+    headline: "Creating Lasting Impact Through Compassion, Protection, and Opportunity",
+    supporting:
+      "World Impact Initiative is committed to advancing human dignity, equality, and opportunity by supporting vulnerable and underserved communities through sustainable, community-driven programs.",
+    focus: "Overall organization mission",
+    ctaLabel: "Discover Our Work",
+    ctaHref: "#impact-areas",
+    mediaType: "video",
+    mediaSrc: "/videos/home-hero.mp4",
+    mediaPoster: "/images/home-hero.jpg",
+  },
+  {
+    id: "hero-2",
+    headline: "Protecting Children. Promoting Rights. Building Futures.",
+    supporting:
+      "Our Child Protection & Human Rights programs strengthen safer homes, schools, and communities through prevention, response, and family-centered support.",
+    focus: "Child Protection & Human Rights",
+    ctaLabel: "Learn More",
+    ctaHref: "/programs/child-protection-human-rights",
+    mediaType: "image",
+    mediaSrc: "/images/program-child-protection.jpg",
+  },
+  {
+    id: "hero-3",
+    headline: "Empowering Youth Today. Transforming Communities Tomorrow.",
+    supporting:
+      "We equip youth with practical technical skills, mentorship, and leadership pathways that unlock dignified livelihoods and stronger local economies.",
+    focus: "Youth Empowerment & Skills Training",
+    ctaLabel: "Explore Programs",
+    ctaHref: "/programs",
+    mediaType: "image",
+    mediaSrc: "/images/program-youth-empowerment.jpg",
+  },
+  {
+    id: "hero-4",
+    headline: "Advancing Safety, Dignity, and Equal Opportunity.",
+    supporting:
+      "Our Gender Equality & Protection work helps communities prevent violence, expand leadership opportunities, and promote rights-based inclusion.",
+    focus: "Gender Equality & Protection",
+    ctaLabel: "View Programs",
+    ctaHref: "/programs/gender-equality-protection",
+    mediaType: "image",
+    mediaSrc: "/images/program-gender-equality.jpg",
+  },
+  {
+    id: "hero-5",
+    headline: "Responding When Communities Need It Most.",
+    supporting:
+      "During crisis, we deliver accountable humanitarian support and partner with local leaders to protect dignity and accelerate recovery.",
+    focus: "Humanitarian Relief & Crisis Response",
+    ctaLabel: "Support Our Mission",
+    ctaHref: "/donate",
+    mediaType: "image",
+    mediaSrc: "/images/program-crisis-response.jpg",
+  },
+];
+
 export type ProgramContent = {
   slug: ProgramSlug;
   title: string;
