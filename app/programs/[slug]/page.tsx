@@ -10,6 +10,21 @@ type ProgramPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+function hexToRgba(hex: string, alpha: number) {
+  const normalized = hex.replace("#", "");
+  const value =
+    normalized.length === 3
+      ? normalized
+          .split("")
+          .map((char) => char + char)
+          .join("")
+      : normalized;
+  const r = Number.parseInt(value.slice(0, 2), 16);
+  const g = Number.parseInt(value.slice(2, 4), 16);
+  const b = Number.parseInt(value.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 function getProgram(slug: string) {
   return PROGRAMS.find((program) => program.slug === slug);
 }
@@ -61,8 +76,10 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(90deg, rgba(8,30,50,0.8) 0%, rgba(8,30,50,0.58) 52%, rgba(8,30,50,0.35) 100%)",
+            background: `linear-gradient(90deg, ${hexToRgba(theme.strong, 0.88)} 0%, ${hexToRgba(
+              theme.accent,
+              0.56,
+            )} 52%, ${hexToRgba(theme.strong, 0.38)} 100%)`,
           }}
         />
         <div className="container-shell relative py-20 md:py-28">
@@ -75,14 +92,18 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
           <p className="mt-5 max-w-3xl text-base text-white/90 md:text-lg">
             {program.heroSummary}
           </p>
+          <div className="mt-6 inline-flex rounded-full border px-4 py-2 text-sm font-semibold" style={{ borderColor: theme.soft, backgroundColor: hexToRgba(theme.soft, 0.2), color: theme.soft }}>
+            Theme Accent: {theme.accent}
+          </div>
         </div>
       </section>
 
+      <section style={{ backgroundColor: theme.soft }}>
       <div className="container-shell space-y-12 py-12 md:space-y-16 md:py-16">
         <AnimatedSection>
           <SectionHeading title="Why It Matters" />
           <p
-            className="mt-4 rounded-2xl border bg-white p-6 text-lg text-slate-700 shadow-md"
+            className="mt-4 rounded-2xl border-l-[6px] bg-white p-6 text-lg text-slate-700 shadow-md"
             style={{ borderColor: theme.ring }}
           >
             {program.whyItMatters}
@@ -217,6 +238,7 @@ export default async function ProgramDetailPage(props: ProgramPageProps) {
           />
         </AnimatedSection>
       </div>
+      </section>
     </>
   );
 }
