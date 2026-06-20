@@ -1,139 +1,202 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, Users, ArrowDown } from "lucide-react";
-import CountUp from "@/components/ui/CountUp";
+import { motion } from "framer-motion";
+import { ArrowRight, Users, ChevronDown } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const stats = [
-  { value: 50000, suffix: "+", label: "Lives Impacted" },
-  { value: 25, suffix: "+", label: "Programs Active" },
-  { value: 15, suffix: "+", label: "Countries Reached" },
-  { value: 500, suffix: "+", label: "Volunteers" },
-];
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const ctx = gsap.context(() => {
+      // Parallax image on scroll
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      // Fade out text on scroll
+      if (contentRef.current) {
+        gsap.to(contentRef.current, {
+          yPercent: 12,
+          opacity: 0.4,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "40% top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero section"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      aria-label="Hero — World Impact Initiative"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Parallax Image Container */}
+      <div ref={imageRef} className="absolute inset-0 will-change-transform" style={{ top: "-10%", bottom: "-10%" }}>
         <Image
-          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=90"
-          alt="Children and community members benefiting from World Impact Initiative programs"
+          src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1920&q=90"
+          alt="Community members supported by World Impact Initiative — children learning, women empowered, communities thriving"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+        {/* Clean, non-dark overlay — subtle blue tint */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,76,129,0.75) 0%, rgba(15,76,129,0.55) 55%, rgba(15,76,129,0.3) 100%)" }} />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-custom w-full pt-20">
+      {/* Hero Content */}
+      <div ref={contentRef} className="relative z-10 container-custom pt-28 pb-20">
         <div className="max-w-3xl">
-          {/* Badge */}
+          {/* Label */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 glass-effect px-4 py-2 rounded-full mb-6"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex items-center gap-3 mb-7"
           >
-            <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-            <span className="text-sm text-white font-medium">
-              Canadian Nonprofit Organization
-            </span>
+            <div className="flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-2 backdrop-blur-[2px]">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" style={{ background: "#2FAE66" }} />
+              <span className="text-white/90 text-sm font-semibold">Canadian Nonprofit Organization</span>
+            </div>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-balance font-heading text-white mb-6"
+            style={{
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2.25rem, 5vw, 4rem)",
+              lineHeight: 1.12,
+              letterSpacing: "-0.01em",
+            }}
           >
             Creating Lasting Impact Through{" "}
-            <span className="text-gold">Compassion</span>,{" "}
-            <span className="text-gold">Protection</span>, and{" "}
-            <span className="text-gold">Opportunity</span>
+            <span style={{ color: "#F4C542" }}>Compassion</span>,{" "}
+            <span style={{ color: "#F4C542" }}>Protection</span>, and{" "}
+            <span style={{ color: "#F4C542" }}>Opportunity</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/85 leading-relaxed mb-8 max-w-2xl"
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white/85 mb-10 max-w-xl"
+            style={{ fontSize: "1.2rem", lineHeight: 1.75 }}
           >
-            World Impact Initiative is committed to advancing human dignity,
-            equality, and opportunity by supporting vulnerable and underserved
-            communities through sustainable, community-driven programs.
+            Supporting vulnerable communities through protection, empowerment, inclusion, education, and humanitarian action.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              href="/donate"
-              className="btn-gold text-base px-8 py-4 flex items-center justify-center gap-2 shadow-cta"
+              href="/programs"
+              className="btn-sky text-base px-8 py-4 flex items-center justify-center gap-2 shadow-lg"
+              style={{ fontSize: "1rem", padding: "1rem 2.25rem" }}
             >
-              <Heart className="w-5 h-5" />
-              Donate Now
+              Discover Our Work
+              <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/volunteer"
               className="btn-outline-white text-base px-8 py-4 flex items-center justify-center gap-2"
+              style={{ fontSize: "1rem", padding: "1rem 2.25rem" }}
             >
               <Users className="w-5 h-5" />
-              Become a Volunteer
+              Join Our Mission
             </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
-          >
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="glass-effect rounded-xl p-4 text-center"
-              >
-                <p className="text-2xl md:text-3xl font-heading font-bold text-gold">
-                  <CountUp end={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="text-xs md:text-sm text-white/80 mt-1">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Bottom Stats Strip */}
+      <div className="relative z-10 mt-auto">
+        <div className="bg-white/95 backdrop-blur-[4px] border-t border-white/20">
+          <div className="container-custom">
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              {[
+                { value: "50,000+", label: "Lives Impacted" },
+                { value: "6", label: "Core Programs" },
+                { value: "15+", label: "Countries" },
+                { value: "500+", label: "Volunteers" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+                  className="stat-item"
+                >
+                  <p
+                    className="font-heading font-extrabold"
+                    style={{ color: "#0F4C81", fontFamily: "Montserrat, sans-serif", fontSize: "1.75rem", fontWeight: 800 }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p style={{ color: "#6B7280", fontSize: "0.875rem", fontWeight: 500, marginTop: "0.25rem" }}>
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        transition={{ delay: 1.4 }}
+        className="absolute bottom-36 right-8 hidden md:flex flex-col items-center gap-2 z-10"
       >
-        <span className="text-white/60 text-xs">Scroll to explore</span>
+        <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>
+          Scroll
+        </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowDown className="w-5 h-5 text-white/60" />
+          <ChevronDown className="w-5 h-5 text-white/50" />
         </motion.div>
       </motion.div>
     </section>

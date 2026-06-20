@@ -3,22 +3,9 @@ import Link from "next/link";
 import { LucideIcon, ArrowRight, Heart, CheckCircle2 } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
-interface ProgramStat {
-  value: string;
-  label: string;
-}
-
-interface ProgramActivity {
-  title: string;
-  description: string;
-}
-
-interface BeneficiaryStory {
-  name: string;
-  location: string;
-  story: string;
-  image: string;
-}
+interface ProgramStat { value: string; label: string; }
+interface ProgramActivity { title: string; description: string; }
+interface BeneficiaryStory { name: string; location: string; story: string; image: string; }
 
 interface ProgramPageTemplateProps {
   icon: LucideIcon;
@@ -34,6 +21,7 @@ interface ProgramPageTemplateProps {
   galleryImages: string[];
   iconColor: string;
   iconBg: string;
+  accentColor?: string;
 }
 
 export default function ProgramPageTemplate({
@@ -50,11 +38,12 @@ export default function ProgramPageTemplate({
   galleryImages,
   iconColor,
   iconBg,
+  accentColor = "#4DA6FF",
 }: ProgramPageTemplateProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden">
+      <section className="relative min-h-[65vh] flex items-end pb-0 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={heroImage}
@@ -64,17 +53,32 @@ export default function ProgramPageTemplate({
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/30" />
+          {/* Bright gradient — avoid heavy dark overlay */}
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to top, rgba(15,76,129,0.85) 0%, rgba(15,76,129,0.4) 50%, rgba(15,76,129,0.1) 100%)" }}
+          />
         </div>
-        <div className="container-custom relative z-10 pt-32">
+        <div className="relative z-10 container-custom pt-32 pb-12">
           <AnimateOnScroll>
-            <div className={`w-14 h-14 ${iconBg} rounded-2xl flex items-center justify-center mb-5`}>
-              <Icon className={`w-7 h-7 ${iconColor}`} />
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)" }}>
+              <Icon className="w-4 h-4" style={{ color: "#F4C542" }} />
+              <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.875rem", fontWeight: 600 }}>World Impact Initiative</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 max-w-3xl">
+            <h1
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "white",
+                lineHeight: 1.12,
+                maxWidth: "42rem",
+                marginBottom: "1rem",
+              }}
+            >
               {title}
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
+            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.125rem", lineHeight: 1.75, maxWidth: "36rem" }}>
               {subtitle}
             </p>
           </AnimateOnScroll>
@@ -82,13 +86,21 @@ export default function ProgramPageTemplate({
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-gold py-10">
+      <section style={{ background: accentColor }}>
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-heading font-bold text-primary">{stat.value}</p>
-                <p className="text-sm text-primary/70 mt-1 font-medium">{stat.label}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className="stat-item"
+                style={{ borderColor: "rgba(255,255,255,0.2)" }}
+              >
+                <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "2rem", color: i % 2 === 0 ? "#0F4C81" : "white" }}>
+                  {stat.value}
+                </p>
+                <p style={{ color: i % 2 === 0 ? "rgba(15,76,129,0.7)" : "rgba(255,255,255,0.8)", fontSize: "0.875rem", marginTop: "0.25rem", fontWeight: 500 }}>
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
@@ -100,22 +112,20 @@ export default function ProgramPageTemplate({
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll direction="left">
-              <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
-                The Challenge
-              </p>
-              <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+              <div className="section-label">The Challenge</div>
+              <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.875rem, 3.5vw, 2.5rem)", color: "#0F4C81", marginBottom: "1.25rem", lineHeight: 1.2 }}>
                 Why It Matters
               </h2>
-              <p className="text-gray-700 leading-relaxed text-lg">{whyItMatters}</p>
+              <p className="body-lg" style={{ color: "#4B5563" }}>{whyItMatters}</p>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
-              <div className="relative h-80 rounded-2xl overflow-hidden shadow-xl">
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <Image
                   src={galleryImages[0]}
                   alt="Why this program matters"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  width={700}
+                  height={525}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </AnimateOnScroll>
@@ -124,28 +134,26 @@ export default function ProgramPageTemplate({
       </section>
 
       {/* Our Approach */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding" style={{ background: "#F9FAFB" }}>
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll direction="left" className="order-2 lg:order-1">
-              <div className="relative h-80 rounded-2xl overflow-hidden shadow-xl">
+              <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <Image
                   src={galleryImages[1] || galleryImages[0]}
                   alt="Our approach"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  width={700}
+                  height={525}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right" className="order-1 lg:order-2">
-              <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
-                How We Work
-              </p>
-              <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+              <div className="section-label">How We Work</div>
+              <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.875rem, 3.5vw, 2.5rem)", color: "#0F4C81", marginBottom: "1.25rem", lineHeight: 1.2 }}>
                 Our Approach
               </h2>
-              <p className="text-gray-700 leading-relaxed text-lg">{approach}</p>
+              <p className="body-lg" style={{ color: "#4B5563" }}>{approach}</p>
             </AnimateOnScroll>
           </div>
         </div>
@@ -155,21 +163,26 @@ export default function ProgramPageTemplate({
       <section className="section-padding bg-white">
         <div className="container-custom">
           <AnimateOnScroll className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
+            <div className="section-label" style={{ justifyContent: "center" }}>
+              <span className="inline-block w-8 h-0.5 mr-2 rounded" style={{ background: accentColor }} />
               What We Do
-            </p>
-            <h2 className="text-3xl font-heading font-bold text-primary">Key Activities</h2>
+            </div>
+            <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#0F4C81" }}>
+              Key Activities
+            </h2>
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {activities.map((activity, index) => (
-              <AnimateOnScroll key={activity.title} delay={index * 0.08}>
-                <div className="card p-6 h-full">
-                  <div className={`w-10 h-10 ${iconBg} rounded-xl flex items-center justify-center mb-4`}>
-                    <CheckCircle2 className={`w-5 h-5 ${iconColor}`} />
+              <AnimateOnScroll key={activity.title} delay={index * 0.07}>
+                <div className="card card-hover card-shadow p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: iconBg }}>
+                    <CheckCircle2 className="w-5 h-5" style={{ color: iconColor }} />
                   </div>
-                  <h3 className="font-heading font-bold text-primary mb-2">{activity.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{activity.description}</p>
+                  <h3 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "#0F4C81", marginBottom: "0.5rem", fontSize: "1rem" }}>
+                    {activity.title}
+                  </h3>
+                  <p style={{ color: "#6B7280", fontSize: "0.9rem", lineHeight: 1.75 }}>{activity.description}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -178,21 +191,24 @@ export default function ProgramPageTemplate({
       </section>
 
       {/* Expected Impact */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding" style={{ background: "#EFF6FF" }}>
         <div className="container-custom">
           <AnimateOnScroll className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
+            <div className="section-label" style={{ justifyContent: "center" }}>
+              <span className="inline-block w-8 h-0.5 mr-2 rounded" style={{ background: "#4DA6FF" }} />
               Looking Ahead
-            </p>
-            <h2 className="text-3xl font-heading font-bold text-white">Expected Impact</h2>
+            </div>
+            <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#0F4C81" }}>
+              Expected Impact
+            </h2>
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {expectedImpact.map((impact, index) => (
               <AnimateOnScroll key={impact} delay={index * 0.06}>
-                <div className="flex items-start gap-3 bg-white/10 rounded-xl p-4">
-                  <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                  <p className="text-white/90 text-sm leading-relaxed">{impact}</p>
+                <div className="flex items-start gap-3 bg-white rounded-xl p-4 border border-blue-100 shadow-sm">
+                  <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#2FAE66" }} />
+                  <p style={{ color: "#374151", fontSize: "0.9375rem", lineHeight: 1.7 }}>{impact}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -204,16 +220,19 @@ export default function ProgramPageTemplate({
       <section className="section-padding bg-white">
         <div className="container-custom">
           <AnimateOnScroll className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
+            <div className="section-label" style={{ justifyContent: "center" }}>
+              <span className="inline-block w-8 h-0.5 mr-2 rounded" style={{ background: "#2FAE66" }} />
               Real Stories
-            </p>
-            <h2 className="text-3xl font-heading font-bold text-primary">A Story of Change</h2>
+            </div>
+            <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#0F4C81" }}>
+              A Story of Change
+            </h2>
           </AnimateOnScroll>
 
           <AnimateOnScroll>
-            <div className="max-w-4xl mx-auto bg-gray-50 rounded-3xl overflow-hidden shadow-card">
+            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-gray-100" style={{ boxShadow: "0 8px 40px rgba(15,76,129,0.1)" }}>
               <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-72 md:h-auto min-h-[280px]">
                   <Image
                     src={beneficiaryStory.image}
                     alt={beneficiaryStory.name}
@@ -222,15 +241,18 @@ export default function ProgramPageTemplate({
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <div className="p-8 lg:p-10 flex flex-col justify-center">
-                  <div className="text-4xl text-gold mb-4">&ldquo;</div>
-                  <p className="text-gray-700 leading-relaxed italic text-lg mb-6">
+                <div className="p-8 lg:p-10 flex flex-col justify-center bg-white">
+                  <div className="text-5xl leading-none mb-4" style={{ color: accentColor, opacity: 0.4, fontFamily: "Georgia, serif" }}>&ldquo;</div>
+                  <p style={{ color: "#374151", lineHeight: 1.85, fontSize: "1.0625rem", fontStyle: "italic", marginBottom: "1.5rem" }}>
                     {beneficiaryStory.story}
                   </p>
-                  <div>
-                    <p className="font-heading font-bold text-primary">{beneficiaryStory.name}</p>
-                    <p className="text-sm text-gray-500">{beneficiaryStory.location}</p>
-                  </div>
+                  <div className="w-12 h-1 rounded mb-4" style={{ background: accentColor }} />
+                  <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "#0F4C81" }}>
+                    {beneficiaryStory.name}
+                  </p>
+                  <p style={{ color: "#9CA3AF", fontSize: "0.875rem", marginTop: "0.25rem" }}>
+                    {beneficiaryStory.location}
+                  </p>
                 </div>
               </div>
             </div>
@@ -239,27 +261,33 @@ export default function ProgramPageTemplate({
       </section>
 
       {/* Photo Gallery */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding" style={{ background: "#F9FAFB" }}>
         <div className="container-custom">
           <AnimateOnScroll className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">
+            <div className="section-label" style={{ justifyContent: "center" }}>
+              <span className="inline-block w-8 h-0.5 mr-2 rounded" style={{ background: "#4DA6FF" }} />
               Gallery
-            </p>
-            <h2 className="text-3xl font-heading font-bold text-primary">Program Gallery</h2>
+            </div>
+            <h2 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#0F4C81" }}>
+              Program Gallery
+            </h2>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((img, index) => (
               <AnimateOnScroll key={img} delay={index * 0.05}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden group">
+                <div className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
                   <Image
                     src={img}
-                    alt={`${title} program photo ${index + 1}`}
+                    alt={`${title} gallery ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors" />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: "rgba(15,76,129,0.2)" }}
+                  />
                 </div>
               </AnimateOnScroll>
             ))}
@@ -270,16 +298,15 @@ export default function ProgramPageTemplate({
       {/* CTAs */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <AnimateOnScroll delay={0.1}>
-              <div className="bg-primary rounded-2xl p-8 text-center">
-                <Heart className="w-10 h-10 text-gold mx-auto mb-4" />
-                <h3 className="text-xl font-heading font-bold text-white mb-3">
+              <div className="rounded-2xl p-8 text-center" style={{ background: "#0F4C81" }}>
+                <Heart className="w-10 h-10 mx-auto mb-4" style={{ color: "#F4C542" }} />
+                <h3 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "white", marginBottom: "0.75rem" }}>
                   Support This Program
                 </h3>
-                <p className="text-white/80 mb-6 text-sm leading-relaxed">
-                  Your donation directly funds this program and creates lasting
-                  change for vulnerable communities.
+                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.9375rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
+                  Your donation directly funds this program and creates lasting change for vulnerable communities.
                 </p>
                 <Link href="/donate" className="btn-gold w-full justify-center">
                   Donate Now
@@ -288,18 +315,17 @@ export default function ProgramPageTemplate({
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.2}>
-              <div className="bg-gold rounded-2xl p-8 text-center">
-                <CheckCircle2 className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-heading font-bold text-primary mb-3">
+              <div className="rounded-2xl p-8 text-center border-2" style={{ borderColor: "#4DA6FF", background: "#EFF6FF" }}>
+                <CheckCircle2 className="w-10 h-10 mx-auto mb-4" style={{ color: "#4DA6FF" }} />
+                <h3 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#0F4C81", marginBottom: "0.75rem" }}>
                   Become a Partner
                 </h3>
-                <p className="text-primary/80 mb-6 text-sm leading-relaxed">
-                  Organizations and institutions can partner with us to expand
-                  this program&apos;s reach and impact.
+                <p style={{ color: "#4B5563", fontSize: "0.9375rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
+                  Organizations can partner with us to expand this program&apos;s reach and impact across communities.
                 </p>
-                <Link href="/contact" className="btn-primary w-full justify-center">
+                <Link href="/contact" className="btn-primary w-full justify-center gap-2">
                   Partner With Us
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </AnimateOnScroll>

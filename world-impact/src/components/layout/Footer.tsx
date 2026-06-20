@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Globe, Mail, MapPin, Heart, ArrowRight } from "lucide-react";
-import NewsletterForm from "./NewsletterForm";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -8,6 +7,7 @@ import {
   TwitterXIcon,
   YoutubeIcon,
 } from "@/components/ui/SocialIcons";
+import NewsletterForm from "./NewsletterForm";
 
 const programLinks = [
   { href: "/programs/gender-equality", label: "Gender Equality & Protection" },
@@ -21,7 +21,7 @@ const programLinks = [
 const quickLinks = [
   { href: "/about", label: "About Us" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/blog", label: "Blog/News" },
+  { href: "/blog", label: "News & Blog" },
   { href: "/events", label: "Events" },
   { href: "/volunteer", label: "Volunteer" },
   { href: "/donate", label: "Donate" },
@@ -30,50 +30,25 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  {
-    href: "https://facebook.com/worldimpactinitiative",
-    icon: FacebookIcon,
-    label: "Facebook",
-    color: "hover:text-blue-500",
-  },
-  {
-    href: "https://instagram.com/worldimpactinitiative",
-    icon: InstagramIcon,
-    label: "Instagram",
-    color: "hover:text-pink-500",
-  },
-  {
-    href: "https://linkedin.com/company/worldimpactinitiative",
-    icon: LinkedinIcon,
-    label: "LinkedIn",
-    color: "hover:text-blue-400",
-  },
-  {
-    href: "https://twitter.com/worldimpactini",
-    icon: TwitterXIcon,
-    label: "X (Twitter)",
-    color: "hover:text-sky-400",
-  },
-  {
-    href: "https://youtube.com/worldimpactinitiative",
-    icon: YoutubeIcon,
-    label: "YouTube",
-    color: "hover:text-red-500",
-  },
+  { href: "https://facebook.com/worldimpactinitiative", icon: FacebookIcon, label: "Facebook" },
+  { href: "https://instagram.com/worldimpactinitiative", icon: InstagramIcon, label: "Instagram" },
+  { href: "https://linkedin.com/company/worldimpactinitiative", icon: LinkedinIcon, label: "LinkedIn" },
+  { href: "https://twitter.com/worldimpactini", icon: TwitterXIcon, label: "X (Twitter)" },
+  { href: "https://youtube.com/worldimpactinitiative", icon: YoutubeIcon, label: "YouTube" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white" role="contentinfo">
-      {/* Newsletter Bar */}
-      <div className="bg-primary">
+    <footer role="contentinfo" style={{ background: "#0F2A4A" }}>
+      {/* Newsletter Strip */}
+      <div style={{ background: "#0F4C81" }}>
         <div className="container-custom py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl font-heading font-bold text-white">
+              <h3 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "white" }}>
                 Stay Connected
               </h3>
-              <p className="text-white/80 mt-1">
+              <p style={{ color: "rgba(255,255,255,0.7)", marginTop: "0.25rem", fontSize: "0.9375rem" }}>
                 Get updates on our programs, events, and impact stories.
               </p>
             </div>
@@ -85,50 +60,55 @@ export default function Footer() {
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
+          {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <Globe className="w-6 h-6 text-white" />
+            <Link href="/" className="flex items-center gap-3 mb-5 group">
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg, #4DA6FF, #0F4C81)" }}
+              >
+                <Globe className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="font-heading font-bold text-white text-lg leading-tight">
+                <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, color: "white", fontSize: "1rem", lineHeight: 1.2 }}>
                   World Impact
                 </p>
-                <p className="font-heading font-bold text-gold text-lg leading-tight">
+                <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "#4DA6FF", fontSize: "0.875rem", lineHeight: 1.2 }}>
                   Initiative
                 </p>
               </div>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              A Canadian nonprofit advancing human dignity, equality, and
-              opportunity through sustainable, community-driven programs.
+
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+              A Canadian nonprofit advancing human dignity, equality, and opportunity through sustainable, community-driven programs worldwide.
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-3">
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               <a
                 href="mailto:info@worldimpactinitiative.org"
-                className="flex items-center gap-3 text-sm text-gray-400 hover:text-gold transition-colors"
+                className="flex items-center gap-3 transition-colors group"
+                style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem" }}
               >
-                <Mail className="w-4 h-4 text-gold shrink-0" />
-                info@worldimpactinitiative.org
+                <Mail className="w-4 h-4 shrink-0" style={{ color: "#4DA6FF" }} />
+                <span className="group-hover:text-white transition-colors">info@worldimpactinitiative.org</span>
               </a>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
-                <MapPin className="w-4 h-4 text-gold shrink-0" />
-                Canada
+              <div className="flex items-center gap-3" style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem" }}>
+                <MapPin className="w-4 h-4 shrink-0" style={{ color: "#4DA6FF" }} />
+                Canada 🇨🇦
               </div>
               <a
                 href="https://worldimpactinitiative.org"
-                className="flex items-center gap-3 text-sm text-gray-400 hover:text-gold transition-colors"
+                className="flex items-center gap-3 transition-colors group"
+                style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem" }}
               >
-                <Globe className="w-4 h-4 text-gold shrink-0" />
-                worldimpactinitiative.org
+                <Globe className="w-4 h-4 shrink-0" style={{ color: "#4DA6FF" }} />
+                <span className="group-hover:text-white transition-colors">worldimpactinitiative.org</span>
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -137,8 +117,8 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Visit our ${social.label} page`}
-                    className={`w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-gray-400 ${social.color} transition-all duration-200 hover:bg-white/20`}
+                    aria-label={`${social.label} — World Impact Initiative`}
+                    className="social-icon-btn w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -147,82 +127,81 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Programs */}
+          {/* Programs Column */}
           <div>
-            <h4 className="font-heading font-bold text-white mb-5">
+            <h4 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "white", marginBottom: "1.25rem", fontSize: "0.9375rem" }}>
               Our Programs
             </h4>
-            <ul className="space-y-2.5">
+            <ul style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
               {programLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-2 group"
+                    className="flex items-center gap-2 transition-colors group"
+                    style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.875rem" }}
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.label}
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#4DA6FF" }} />
+                    <span className="group-hover:text-white transition-colors">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links Column */}
           <div>
-            <h4 className="font-heading font-bold text-white mb-5">
+            <h4 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "white", marginBottom: "1.25rem", fontSize: "0.9375rem" }}>
               Quick Links
             </h4>
-            <ul className="space-y-2.5">
+            <ul style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-2 group"
+                    className="flex items-center gap-2 transition-colors group"
+                    style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.875rem" }}
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.label}
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "#4DA6FF" }} />
+                    <span className="group-hover:text-white transition-colors">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Donate CTA */}
+          {/* Donate Column */}
           <div>
-            <h4 className="font-heading font-bold text-white mb-5">
+            <h4 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, color: "white", marginBottom: "1.25rem", fontSize: "0.9375rem" }}>
               Make a Difference
             </h4>
-            <p className="text-sm text-gray-400 mb-5 leading-relaxed">
-              Your generosity directly supports vulnerable communities. Every
-              dollar creates lasting change.
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.875rem", lineHeight: 1.75, marginBottom: "1.25rem" }}>
+              Your generosity directly supports vulnerable communities. Every donation creates lasting change.
             </p>
-            <Link
-              href="/donate"
-              className="btn-gold w-full justify-center gap-2 mb-4"
-            >
+            <Link href="/donate" className="btn-gold w-full justify-center gap-2 mb-3">
               <Heart className="w-4 h-4" />
               Donate Now
             </Link>
-            <Link
-              href="/volunteer"
-              className="btn-outline-white w-full justify-center text-sm py-2.5"
-            >
-              Become a Volunteer
+            <Link href="/volunteer" className="btn-outline-white w-full justify-center" style={{ fontSize: "0.875rem", padding: "0.75rem 1.5rem" }}>
+              Volunteer With Us
             </Link>
 
-            {/* Charity Registration */}
-            <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Registered Canadian Nonprofit Organization.{" "}
+            {/* Charity Impact notice */}
+            <div
+              className="mt-5 p-4 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+            >
+              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.75rem", lineHeight: 1.7 }}>
+                Registered Canadian Nonprofit.{" "}
                 <a
                   href="https://charitableimpact.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold hover:underline"
+                  style={{ color: "#F4C542" }}
+                  className="hover:underline"
                 >
                   Donate securely
                 </a>{" "}
-                through Charitable Impact.
+                through Charitable Impact. Tax receipts issued automatically.
               </p>
             </div>
           </div>
@@ -230,34 +209,29 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="container-custom py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} World Impact Initiative. All rights
-              reserved.
+            <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8125rem" }}>
+              © {new Date().getFullYear()} World Impact Initiative. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-sm">
-              <Link
-                href="/privacy"
-                className="text-gray-500 hover:text-gray-300 transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-gray-500 hover:text-gray-300 transition-colors"
-              >
-                Terms of Use
-              </Link>
-              <a
-                href="https://linktr.ee/worldimpactinitiative.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 transition-colors"
-              >
-                Linktree
-              </a>
+            <div className="flex items-center gap-5">
+              {[
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Use" },
+                { href: "https://linktr.ee/worldimpactinitiative.org", label: "Linktree", external: true },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8125rem" }}
+                  className="hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | World Impact Initiative",
   },
   description:
-    "World Impact Initiative is a Canadian nonprofit advancing human dignity, equality, and opportunity through child protection, gender equality, youth empowerment, disability inclusion, and crisis response programs.",
+    "World Impact Initiative is a Canadian nonprofit advancing human dignity, equality, and opportunity through child protection, gender equality, youth empowerment, disability inclusion, health & education, and crisis response.",
   keywords: [
     "Canadian nonprofit organization",
     "humanitarian aid",
@@ -59,15 +59,11 @@ export const metadata: Metadata = {
     site: "@worldimpactini",
     creator: "@worldimpactini",
     title: "World Impact Initiative | Creating Lasting Impact",
-    description:
-      "Empowering vulnerable communities through sustainable programs.",
+    description: "Empowering vulnerable communities through sustainable programs.",
     images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://worldimpactinitiative.org",
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 
@@ -107,13 +103,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
