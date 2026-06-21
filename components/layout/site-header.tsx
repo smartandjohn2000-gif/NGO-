@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-b-[#CFE4FF] bg-white/98 text-[#0A245D] shadow-[0_2px_14px_rgba(11,87,208,0.1)] backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-b-[#CFE4FF] bg-white text-[#0A245D] shadow-[0_2px_14px_rgba(11,87,208,0.1)]">
       <div className="mx-auto grid h-[4.4rem] w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-3 px-3 md:flex md:justify-between md:px-6">
         <div className="flex shrink-0 items-center md:hidden">
           <MobileNav />
@@ -13,7 +13,7 @@ export function SiteHeader() {
 
         <Link
           href="/"
-          className="inline-flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
+          className="inline-flex min-w-0 items-center justify-self-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0] md:flex-1 md:justify-self-auto"
           aria-label="World Impact Initiative home"
           data-no-translate="true"
         >
