@@ -53,11 +53,11 @@ export default function HomePage() {
           </div>
           <div className="space-y-6">
             <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
-              <h3 className="text-lg font-semibold text-[#083EA0]">Mission</h3>
+              <h3 className="text-lg font-semibold text-slate-900">Mission</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.mission}</p>
             </div>
             <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
-              <h3 className="text-lg font-semibold text-[#083EA0]">Vision</h3>
+              <h3 className="text-lg font-semibold text-slate-900">Vision</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.vision}</p>
             </div>
           </div>

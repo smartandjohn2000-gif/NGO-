@@ -265,7 +265,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "gender-equality-protection",
     title: "Gender Equality & Protection",
-    image: "/images/main_uploads/main-5.jpg",
+    image: "/images/impact/impact-gender-equality.jpg",
     heroSummary:
       "We partner with communities to prevent gender-based violence and expand safe access to leadership, justice, and opportunity.",
     whyItMatters:
@@ -306,7 +306,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "child-protection-human-rights",
     title: "Child Protection & Human Rights",
-    image: "/images/main_uploads/main-2.jpg",
+    image: "/images/impact/impact-child-protection.jpg",
     heroSummary:
       "Our child-rights programs protect vulnerable children through prevention, response, and family-centered support.",
     whyItMatters:
@@ -347,7 +347,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "youth-empowerment-technical-skills-training",
     title: "Youth Empowerment & Technical Skills Training",
-    image: "/images/main_uploads/main-1.jpg",
+    image: "/images/impact/impact-youth-empowerment.jpg",
     heroSummary:
       "We equip youth with technical, digital, and entrepreneurial skills that unlock employment and leadership opportunities.",
     whyItMatters:
@@ -388,7 +388,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "disability-inclusion-accessibility",
     title: "Disability Inclusion & Accessibility",
-    image: "/images/main_uploads/main-9.jpg",
+    image: "/images/impact/impact-disability-inclusion.jpg",
     heroSummary:
       "We champion equal access by removing barriers and co-creating inclusive services with persons with disabilities.",
     whyItMatters:
@@ -429,7 +429,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "health-services-inclusive-education",
     title: "Health Services & Inclusive Education",
-    image: "/images/main_uploads/main-7.jpg",
+    image: "/images/impact/impact-health-education.jpg",
     heroSummary:
       "We connect families to essential health and education services through equitable, inclusive community systems.",
     whyItMatters:
@@ -470,7 +470,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "crisis-response-humanitarian-relief",
     title: "Crisis Response & Humanitarian Relief",
-    image: "/images/main_uploads/main-8.jpg",
+    image: "/images/impact/impact-crisis-response.jpg",
     heroSummary:
       "We provide rapid, accountable humanitarian assistance while helping communities recover with dignity and resilience.",
     whyItMatters:
