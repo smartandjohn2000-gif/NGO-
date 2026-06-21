@@ -41,7 +41,7 @@ export default function ContactPage() {
       <PageHero
         title="Contact World Impact Initiative"
         subtitle="Choose the right department for your inquiry and connect with our team quickly."
-        image="/images/gallery-4.jpg"
+        image="/images/main_uploads/main-5.jpg"
       />
 
       <section className="container-shell py-14 md:py-20">

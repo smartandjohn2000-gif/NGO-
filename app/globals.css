@@ -141,7 +141,7 @@ iframe {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgb(8 62 160 / 0.8) 0%, rgb(11 87 208 / 0.6) 52%, rgb(10 36 93 / 0.72) 100%);
+    linear-gradient(135deg, rgb(8 62 160 / 0.52) 0%, rgb(11 87 208 / 0.38) 52%, rgb(10 36 93 / 0.54) 100%);
 }
 
 .wii-hero__content {
@@ -169,6 +169,13 @@ iframe {
   font-size: clamp(2rem, 4.2vw, 4.2rem);
   line-height: 1.1;
   font-weight: 700;
+}
+
+.wii-hero__title--transparent {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.6px rgb(255 255 255 / 0.96);
+  text-shadow: 0 8px 24px rgb(6 24 60 / 0.45);
 }
 
 .wii-hero__subtitle {

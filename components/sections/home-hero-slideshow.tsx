@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
 
 const SLIDES = [
-  "/images/gallery-2.jpg",
-  "/images/gallery-7.jpg",
-  "/images/gallery-11.jpg",
+  "/images/main_uploads/main-1.jpg",
+  "/images/main_uploads/main-4.jpg",
+  "/images/main_uploads/main-8.jpg",
 ];
 
 export function HomeHeroSlideshow() {
@@ -45,7 +45,7 @@ export function HomeHeroSlideshow() {
 
       <div className="container-shell wii-hero__content">
         <p className="wii-hero__eyebrow">Empowering Communities</p>
-        <h1 className="wii-hero__title">
+        <h1 className="wii-hero__title wii-hero__title--transparent">
           Creating Lasting Impact Through Compassion, Protection, and Opportunity
         </h1>
         <p className="wii-hero__subtitle">

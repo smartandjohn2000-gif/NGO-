@@ -16,7 +16,7 @@ export default function GalleryPage() {
       <PageHero
         title="Gallery"
         subtitle="Stories of impact from our humanitarian and community development work."
-        image="/images/gallery-10.jpg"
+        image="/images/main_uploads/main-9.jpg"
       />
       <div className="container-shell py-14 md:py-20">
         <SectionHeading

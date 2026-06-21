@@ -195,7 +195,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaHref: "#impact-areas",
     mediaType: "video",
     mediaSrc: "/videos/home-hero.mp4",
-    mediaPoster: "/images/home-hero.jpg",
+    mediaPoster: "/images/main_uploads/main-1.jpg",
   },
   {
     id: "hero-2",
@@ -206,7 +206,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Learn More",
     ctaHref: "/programs/child-protection-human-rights",
     mediaType: "image",
-    mediaSrc: "/images/gallery-3.jpg",
+    mediaSrc: "/images/main_uploads/main-2.jpg",
   },
   {
     id: "hero-3",
@@ -217,7 +217,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Explore Programs",
     ctaHref: "/programs",
     mediaType: "image",
-    mediaSrc: "/images/gallery-5.jpg",
+    mediaSrc: "/images/main_uploads/main-6.jpg",
   },
   {
     id: "hero-4",
@@ -228,7 +228,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "View Programs",
     ctaHref: "/programs/gender-equality-protection",
     mediaType: "image",
-    mediaSrc: "/images/gallery-1.jpg",
+    mediaSrc: "/images/main_uploads/main-5.jpg",
   },
   {
     id: "hero-5",
@@ -239,7 +239,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Support Our Mission",
     ctaHref: "/donate",
     mediaType: "image",
-    mediaSrc: "/images/gallery-11.jpg",
+    mediaSrc: "/images/main_uploads/main-8.jpg",
   },
 ];
 
@@ -265,7 +265,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "gender-equality-protection",
     title: "Gender Equality & Protection",
-    image: "/images/gallery-1.jpg",
+    image: "/images/main_uploads/main-5.jpg",
     heroSummary:
       "We partner with communities to prevent gender-based violence and expand safe access to leadership, justice, and opportunity.",
     whyItMatters:
@@ -298,15 +298,15 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Local safeguarding committees active", value: "38" },
     ],
     gallery: [
-      { type: "photo", title: "Community dialogue", src: "/images/gallery-1.jpg", category: "gender" },
-      { type: "photo", title: "Safe-space mentoring", src: "/images/gallery-2.jpg", category: "gender" },
+      { type: "photo", title: "Community dialogue", src: "/images/main_uploads/main-5.jpg", category: "gender" },
+      { type: "photo", title: "Safe-space mentoring", src: "/images/main_uploads/main-2.jpg", category: "gender" },
       { type: "video", title: "Leadership forum", src: "https://www.youtube.com/embed/tgbNymZ7vqY", category: "gender" },
     ],
   },
   {
     slug: "child-protection-human-rights",
     title: "Child Protection & Human Rights",
-    image: "/images/gallery-3.jpg",
+    image: "/images/main_uploads/main-2.jpg",
     heroSummary:
       "Our child-rights programs protect vulnerable children through prevention, response, and family-centered support.",
     whyItMatters:
@@ -339,15 +339,15 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Schools engaged", value: "44" },
     ],
     gallery: [
-      { type: "photo", title: "Rights education workshop", src: "/images/gallery-3.jpg", category: "child" },
-      { type: "photo", title: "Caregiver support session", src: "/images/gallery-4.jpg", category: "child" },
+      { type: "photo", title: "Rights education workshop", src: "/images/main_uploads/main-2.jpg", category: "child" },
+      { type: "photo", title: "Caregiver support session", src: "/images/main_uploads/main-5.jpg", category: "child" },
       { type: "video", title: "Children's forum", src: "https://www.youtube.com/embed/dQw4w9WgXcQ", category: "child" },
     ],
   },
   {
     slug: "youth-empowerment-technical-skills-training",
     title: "Youth Empowerment & Technical Skills Training",
-    image: "/images/gallery-5.jpg",
+    image: "/images/main_uploads/main-1.jpg",
     heroSummary:
       "We equip youth with technical, digital, and entrepreneurial skills that unlock employment and leadership opportunities.",
     whyItMatters:
@@ -380,15 +380,15 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Youth-led enterprises supported", value: "210" },
     ],
     gallery: [
-      { type: "photo", title: "Technical training lab", src: "/images/gallery-5.jpg", category: "youth" },
-      { type: "photo", title: "Career mentorship", src: "/images/gallery-6.jpg", category: "youth" },
+      { type: "photo", title: "Technical training lab", src: "/images/main_uploads/main-1.jpg", category: "youth" },
+      { type: "photo", title: "Career mentorship", src: "/images/main_uploads/main-6.jpg", category: "youth" },
       { type: "video", title: "Innovation challenge", src: "https://www.youtube.com/embed/OY4n4M7CVyY", category: "youth" },
     ],
   },
   {
     slug: "disability-inclusion-accessibility",
     title: "Disability Inclusion & Accessibility",
-    image: "/images/gallery-7.jpg",
+    image: "/images/main_uploads/main-9.jpg",
     heroSummary:
       "We champion equal access by removing barriers and co-creating inclusive services with persons with disabilities.",
     whyItMatters:
@@ -421,15 +421,15 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Inclusion champions trained", value: "320" },
     ],
     gallery: [
-      { type: "photo", title: "Accessible classroom setup", src: "/images/gallery-7.jpg", category: "disability" },
-      { type: "photo", title: "Community inclusion dialogue", src: "/images/gallery-8.jpg", category: "disability" },
+      { type: "photo", title: "Accessible classroom setup", src: "/images/main_uploads/main-9.jpg", category: "disability" },
+      { type: "photo", title: "Community inclusion dialogue", src: "/images/main_uploads/main-4.jpg", category: "disability" },
       { type: "video", title: "Accessibility innovation", src: "https://www.youtube.com/embed/K4TOrB7at0Y", category: "disability" },
     ],
   },
   {
     slug: "health-services-inclusive-education",
     title: "Health Services & Inclusive Education",
-    image: "/images/gallery-9.jpg",
+    image: "/images/main_uploads/main-7.jpg",
     heroSummary:
       "We connect families to essential health and education services through equitable, inclusive community systems.",
     whyItMatters:
@@ -462,15 +462,15 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Referral completion rate", value: "87%" },
     ],
     gallery: [
-      { type: "photo", title: "Community health session", src: "/images/gallery-9.jpg", category: "health" },
-      { type: "photo", title: "Inclusive classroom activity", src: "/images/gallery-10.jpg", category: "health" },
+      { type: "photo", title: "Community health session", src: "/images/main_uploads/main-7.jpg", category: "health" },
+      { type: "photo", title: "Inclusive classroom activity", src: "/images/main_uploads/main-6.jpg", category: "health" },
       { type: "video", title: "Parent engagement forum", src: "https://www.youtube.com/embed/C0DPdy98e4c", category: "health" },
     ],
   },
   {
     slug: "crisis-response-humanitarian-relief",
     title: "Crisis Response & Humanitarian Relief",
-    image: "/images/gallery-11.jpg",
+    image: "/images/main_uploads/main-8.jpg",
     heroSummary:
       "We provide rapid, accountable humanitarian assistance while helping communities recover with dignity and resilience.",
     whyItMatters:
@@ -503,8 +503,8 @@ export const PROGRAMS: ProgramContent[] = [
       { label: "Community recovery plans developed", value: "31" },
     ],
     gallery: [
-      { type: "photo", title: "Emergency distribution", src: "/images/gallery-11.jpg", category: "crisis" },
-      { type: "photo", title: "Community recovery workshop", src: "/images/gallery-12.jpg", category: "crisis" },
+      { type: "photo", title: "Emergency distribution", src: "/images/main_uploads/main-8.jpg", category: "crisis" },
+      { type: "photo", title: "Community recovery workshop", src: "/images/main_uploads/main-3.jpg", category: "crisis" },
       { type: "video", title: "Rapid response coordination", src: "https://www.youtube.com/embed/G9TdA8d5aaU", category: "crisis" },
     ],
   },
@@ -657,11 +657,11 @@ export const EVENT_LIST = [
 ] as const;
 
 export const GALLERY_ITEMS = [
-  { id: "g-1", title: "Field outreach", type: "photo", category: "field", src: "/images/gallery-1.jpg" },
-  { id: "g-2", title: "Youth workshop", type: "photo", category: "youth", src: "/images/gallery-5.jpg" },
-  { id: "g-3", title: "Inclusion training", type: "photo", category: "inclusion", src: "/images/gallery-7.jpg" },
-  { id: "g-4", title: "Health education day", type: "photo", category: "health", src: "/images/gallery-9.jpg" },
-  { id: "g-5", title: "Rapid response deployment", type: "photo", category: "humanitarian", src: "/images/gallery-11.jpg" },
+  { id: "g-1", title: "Field outreach", type: "photo", category: "field", src: "/images/main_uploads/main-5.jpg" },
+  { id: "g-2", title: "Youth workshop", type: "photo", category: "youth", src: "/images/main_uploads/main-1.jpg" },
+  { id: "g-3", title: "Inclusion training", type: "photo", category: "inclusion", src: "/images/main_uploads/main-9.jpg" },
+  { id: "g-4", title: "Health education day", type: "photo", category: "health", src: "/images/main_uploads/main-7.jpg" },
+  { id: "g-5", title: "Rapid response deployment", type: "photo", category: "humanitarian", src: "/images/main_uploads/main-8.jpg" },
   { id: "g-6", title: "Community impact story", type: "video", category: "video", src: "https://www.youtube.com/embed/tgbNymZ7vqY" },
   { id: "g-7", title: "Volunteer reflections", type: "video", category: "video", src: "https://www.youtube.com/embed/C0DPdy98e4c" },
   { id: "g-8", title: "Programs highlights", type: "video", category: "video", src: "https://www.youtube.com/embed/OY4n4M7CVyY" },
