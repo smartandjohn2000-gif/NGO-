@@ -2,8 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { HeartHandshake, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
@@ -57,8 +58,14 @@ export function MobileNav() {
         >
           <div className="flex items-center justify-between border-b border-[#CFE4FF] px-5 py-4">
             <div className="inline-flex items-center gap-2">
-              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#0B57D0] text-white">
-                <HeartHandshake size={16} aria-hidden />
+              <span className="inline-flex size-9 items-center justify-center overflow-hidden rounded-lg ring-1 ring-[#CFE4FF]">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="World Impact Initiative logo"
+                  width={72}
+                  height={72}
+                  className="size-full object-cover"
+                />
               </span>
               <span className="text-base font-bold text-[#0A245D]">World Impact Initiative</span>
             </div>
