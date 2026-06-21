@@ -131,40 +131,40 @@ export type ImpactTheme = {
 
 export const IMPACT_THEMES: Record<ProgramSlug, ImpactTheme> = {
   "gender-equality-protection": {
-    accent: "#7C3AED",
-    soft: "#F3E8FF",
-    strong: "#5B21B6",
-    ring: "rgba(124,58,237,0.35)",
+    accent: "#2563EB",
+    soft: "#EAF1FF",
+    strong: "#123A8F",
+    ring: "rgba(37,99,235,0.32)",
   },
   "child-protection-human-rights": {
     accent: "#0EA5E9",
-    soft: "#E0F2FE",
-    strong: "#0369A1",
-    ring: "rgba(14,165,233,0.35)",
+    soft: "#E6F6FF",
+    strong: "#0B5EA8",
+    ring: "rgba(14,165,233,0.32)",
   },
   "youth-empowerment-technical-skills-training": {
-    accent: "#F97316",
-    soft: "#FFF7ED",
-    strong: "#C2410C",
-    ring: "rgba(249,115,22,0.35)",
+    accent: "#1D4ED8",
+    soft: "#E8EEFF",
+    strong: "#1E3A8A",
+    ring: "rgba(29,78,216,0.32)",
   },
   "disability-inclusion-accessibility": {
-    accent: "#14B8A6",
-    soft: "#F0FDFA",
-    strong: "#0F766E",
-    ring: "rgba(20,184,166,0.35)",
+    accent: "#0284C7",
+    soft: "#E0F5FF",
+    strong: "#0C4A6E",
+    ring: "rgba(2,132,199,0.32)",
   },
   "health-services-inclusive-education": {
-    accent: "#22C55E",
-    soft: "#F0FDF4",
-    strong: "#15803D",
-    ring: "rgba(34,197,94,0.35)",
+    accent: "#3B82F6",
+    soft: "#EAF4FF",
+    strong: "#1E40AF",
+    ring: "rgba(59,130,246,0.32)",
   },
   "crisis-response-humanitarian-relief": {
-    accent: "#F4B400",
-    soft: "#FFF8DB",
-    strong: "#A16207",
-    ring: "rgba(244,180,0,0.35)",
+    accent: "#0369A1",
+    soft: "#E5F4FF",
+    strong: "#082F49",
+    ring: "rgba(3,105,161,0.32)",
   },
 };
 
@@ -206,7 +206,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Learn More",
     ctaHref: "/programs/child-protection-human-rights",
     mediaType: "image",
-    mediaSrc: "/images/program-child-protection.jpg",
+    mediaSrc: "/images/gallery-3.jpg",
   },
   {
     id: "hero-3",
@@ -217,7 +217,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Explore Programs",
     ctaHref: "/programs",
     mediaType: "image",
-    mediaSrc: "/images/program-youth-empowerment.jpg",
+    mediaSrc: "/images/gallery-5.jpg",
   },
   {
     id: "hero-4",
@@ -228,7 +228,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "View Programs",
     ctaHref: "/programs/gender-equality-protection",
     mediaType: "image",
-    mediaSrc: "/images/program-gender-equality.jpg",
+    mediaSrc: "/images/gallery-1.jpg",
   },
   {
     id: "hero-5",
@@ -239,7 +239,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Support Our Mission",
     ctaHref: "/donate",
     mediaType: "image",
-    mediaSrc: "/images/program-crisis-response.jpg",
+    mediaSrc: "/images/gallery-11.jpg",
   },
 ];
 
@@ -265,7 +265,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "gender-equality-protection",
     title: "Gender Equality & Protection",
-    image: "/images/program-gender-equality.jpg",
+    image: "/images/gallery-1.jpg",
     heroSummary:
       "We partner with communities to prevent gender-based violence and expand safe access to leadership, justice, and opportunity.",
     whyItMatters:
@@ -306,7 +306,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "child-protection-human-rights",
     title: "Child Protection & Human Rights",
-    image: "/images/program-child-protection.jpg",
+    image: "/images/gallery-3.jpg",
     heroSummary:
       "Our child-rights programs protect vulnerable children through prevention, response, and family-centered support.",
     whyItMatters:
@@ -347,7 +347,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "youth-empowerment-technical-skills-training",
     title: "Youth Empowerment & Technical Skills Training",
-    image: "/images/program-youth-empowerment.jpg",
+    image: "/images/gallery-5.jpg",
     heroSummary:
       "We equip youth with technical, digital, and entrepreneurial skills that unlock employment and leadership opportunities.",
     whyItMatters:
@@ -388,7 +388,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "disability-inclusion-accessibility",
     title: "Disability Inclusion & Accessibility",
-    image: "/images/program-disability-inclusion.jpg",
+    image: "/images/gallery-7.jpg",
     heroSummary:
       "We champion equal access by removing barriers and co-creating inclusive services with persons with disabilities.",
     whyItMatters:
@@ -429,7 +429,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "health-services-inclusive-education",
     title: "Health Services & Inclusive Education",
-    image: "/images/program-health-education.jpg",
+    image: "/images/gallery-9.jpg",
     heroSummary:
       "We connect families to essential health and education services through equitable, inclusive community systems.",
     whyItMatters:
@@ -470,7 +470,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "crisis-response-humanitarian-relief",
     title: "Crisis Response & Humanitarian Relief",
-    image: "/images/program-crisis-response.jpg",
+    image: "/images/gallery-11.jpg",
     heroSummary:
       "We provide rapid, accountable humanitarian assistance while helping communities recover with dignity and resilience.",
     whyItMatters:

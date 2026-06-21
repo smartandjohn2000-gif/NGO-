@@ -17,7 +17,7 @@ export function PageHero({
   secondaryAction,
 }: PageHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-[#0F4C81] text-white">
+    <section className="relative isolate overflow-hidden bg-[#0B57D0] text-white">
       <Image
         src={image}
         alt=""
@@ -26,7 +26,7 @@ export function PageHero({
         className="object-cover opacity-78"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C81]/55 via-[#4DA6FF]/30 to-[#0F4C81]/22" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#083EA0]/70 via-[#1F7DFF]/38 to-[#0A245D]/32" />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">{title}</h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white md:text-[1.3rem]">

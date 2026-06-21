@@ -35,7 +35,7 @@ export default function HomePage() {
       <HomeHeroSlideshow />
 
       <AnimatedSection className="container-shell py-4 md:py-10">
-        <div className="grid gap-6 rounded-3xl border border-[#CFE7FF] bg-gradient-to-br from-[#FFFFFF] to-[#EFF7FF] p-8 shadow-sm md:grid-cols-2 md:p-12">
+        <div className="grid gap-6 rounded-3xl border border-[#CFE4FF] bg-gradient-to-br from-[#FFFFFF] to-[#EAF3FF] p-8 shadow-sm md:grid-cols-2 md:p-12">
           <div className="space-y-4">
             <SectionHeading
               eyebrow="Who We Are"
@@ -52,12 +52,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className="space-y-6">
-            <div className="rounded-2xl border border-[#BFDFFF] bg-white p-6">
-              <h3 className="text-lg font-semibold text-[#0F4C81]">Mission</h3>
+            <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
+              <h3 className="text-lg font-semibold text-[#083EA0]">Mission</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.mission}</p>
             </div>
-            <div className="rounded-2xl border border-[#CBEBD8] bg-white p-6">
-              <h3 className="text-lg font-semibold text-[#0F4C81]">Vision</h3>
+            <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
+              <h3 className="text-lg font-semibold text-[#083EA0]">Vision</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.vision}</p>
             </div>
           </div>
@@ -143,9 +143,9 @@ export default function HomePage() {
         />
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {TESTIMONIALS.map((testimonial) => (
-            <article key={testimonial.name} className="rounded-2xl border border-[#FDBA74]/45 bg-[#FFF7ED] p-6 shadow-sm">
+            <article key={testimonial.name} className="rounded-2xl border border-[#CFE4FF] bg-[#F3F9FF] p-6 shadow-sm">
               <p className="text-lg leading-relaxed text-slate-700">“{testimonial.quote}”</p>
-              <p className="mt-4 text-base font-semibold text-[#9A3412]">{testimonial.name}</p>
+              <p className="mt-4 text-base font-semibold text-[#083EA0]">{testimonial.name}</p>
               <p className="text-base text-slate-600">{testimonial.role}</p>
             </article>
           ))}
@@ -153,7 +153,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       <AnimatedSection className="container-shell py-8 md:py-14">
-        <div className="rounded-3xl border border-[#BFE7CF] bg-[#F6FFF9] p-8 shadow-sm md:p-12">
+        <div className="rounded-3xl border border-[#CFE4FF] bg-[#F3F9FF] p-8 shadow-sm md:p-12">
           <SectionHeading
             eyebrow="Volunteer Opportunities"
             title="Join our mission with your skills and time"

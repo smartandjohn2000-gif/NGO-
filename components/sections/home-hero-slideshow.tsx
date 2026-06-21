@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
 
 const SLIDES = [
-  "/images/home-hero.jpg",
-  "/images/programs-hero.jpg",
-  "/images/gallery-hero.jpg",
+  "/images/gallery-2.jpg",
+  "/images/gallery-7.jpg",
+  "/images/gallery-11.jpg",
 ];
 
 export function HomeHeroSlideshow() {

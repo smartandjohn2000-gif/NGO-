@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1565c0;
-  --primary-dark: #0d2b6b;
-  --primary-mid: #1976d2;
-  --primary-light: #bbdefb;
-  --primary-pale: #eff6ff;
-  --sky: #2196f3;
-  --sky-light: #90caf9;
-  --sky-pale: #e3f2fd;
-  --orange: #f97316;
-  --orange-dark: #c2410c;
-  --orange-light: #fed7aa;
+  --primary: #0b57d0;
+  --primary-dark: #083ea0;
+  --primary-mid: #1f7dff;
+  --primary-light: #b7d7ff;
+  --primary-pale: #eaf3ff;
+  --sky: #35b6ff;
+  --sky-light: #8ad7ff;
+  --sky-pale: #e0f5ff;
+  --orange: #ff8a1f;
+  --orange-dark: #d06706;
+  --orange-light: #ffd7ac;
   --orange-pale: #fff7ed;
   --green: #16a34a;
   --green-lt: #bbf7d0;
   --amber: #f59e0b;
   --white: #ffffff;
   --cream: #f8faff;
-  --charcoal: #0d1b4b;
-  --mid: #64748b;
-  --border: #dbeafe;
-  --border-light: #e2e8f0;
+  --charcoal: #0a245d;
+  --mid: #5c6d8a;
+  --border: #cfe4ff;
+  --border-light: #d7e7ff;
   --background: var(--white);
   --foreground: var(--charcoal);
 }
@@ -105,7 +105,7 @@ iframe {
 
 .wii-nav-link:hover,
 .wii-nav-link.active {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: var(--white);
 }
 
@@ -141,7 +141,7 @@ iframe {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgb(13 43 107 / 0.75) 0%, rgb(21 101 192 / 0.52) 52%, rgb(13 43 107 / 0.66) 100%);
+    linear-gradient(135deg, rgb(8 62 160 / 0.8) 0%, rgb(11 87 208 / 0.6) 52%, rgb(10 36 93 / 0.72) 100%);
 }
 
 .wii-hero__content {

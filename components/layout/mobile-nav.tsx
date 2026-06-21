@@ -37,7 +37,7 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-[#EFF6FF] p-2 text-[#1565C0] transition hover:bg-[#DBEAFE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1565C0]"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-[#EAF3FF] p-2 text-[#0B57D0] transition hover:bg-[#CFE4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
@@ -56,23 +56,23 @@ export function MobileNav() {
         <aside
           id="mobile-navigation"
           className={[
-            "absolute left-0 top-0 flex h-full w-full flex-col bg-white shadow-[0_16px_48px_rgba(21,101,192,0.20)] transition-transform duration-300",
+            "absolute left-0 top-0 flex h-full w-full flex-col bg-white shadow-[0_16px_48px_rgba(11,87,208,0.24)] transition-transform duration-300",
             open ? "translate-x-0" : "-translate-x-full",
           ].join(" ")}
           aria-label="Mobile navigation drawer"
           onClick={(event) => event.stopPropagation()}
         >
-          <div className="flex items-center justify-between border-b border-[#DBEAFE] px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#CFE4FF] px-5 py-4">
             <div className="inline-flex items-center gap-2">
-              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#1565C0] text-white">
+              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#0B57D0] text-white">
                 <HeartHandshake size={16} aria-hidden />
               </span>
-              <span className="text-base font-bold text-[#0D2B6B]">World Impact Initiative</span>
+              <span className="text-base font-bold text-[#0A245D]">World Impact Initiative</span>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#DBEAFE] text-[#0D2B6B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1565C0]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#CFE4FF] text-[#0A245D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
               aria-label="Close navigation menu"
             >
               <X size={22} />
@@ -94,8 +94,8 @@ export function MobileNav() {
                   className={[
                     "block w-full rounded-xl px-4 py-3 text-base font-bold uppercase tracking-[0.05em] transition",
                     isActive
-                      ? "bg-[#1565C0] text-white"
-                      : "text-[#0D1B4B] hover:bg-[#EFF6FF]",
+                      ? "bg-[#0B57D0] text-white"
+                      : "text-[#0A245D] hover:bg-[#EAF3FF]",
                   ].join(" ")}
                 >
                   {DISPLAY_LABELS[item.label] ?? item.label.toUpperCase()}
@@ -106,12 +106,12 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          <div className="space-y-3 border-t border-[#DBEAFE] px-4 py-4">
-            <LanguageSwitcher className="w-full justify-between border-[#DBEAFE] bg-white text-[#0D1B4B]" />
+          <div className="space-y-3 border-t border-[#CFE4FF] px-4 py-4">
+            <LanguageSwitcher className="w-full justify-between border-[#CFE4FF] bg-white text-[#0A245D]" />
             <Link
               href="/donate"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#F97316] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#0B57D0] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#083EA0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
             >
               Donate
             </Link>

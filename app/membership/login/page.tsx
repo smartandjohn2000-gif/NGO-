@@ -17,7 +17,7 @@ export default function MembershipLoginPage() {
       <PageHero
         title="Membership Portal Login"
         subtitle="Securely access your account and continue supporting community impact."
-        image="/images/membership-hero.jpg"
+        image="/images/gallery-9.jpg"
       />
       <section className="container-shell py-14 md:py-20">
         <div className="mx-auto max-w-xl space-y-4">

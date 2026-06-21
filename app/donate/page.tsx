@@ -18,7 +18,7 @@ export default function DonatePage() {
       <PageHero
         title={SITE_CONFIG.donationHeadline}
         subtitle="Support community-driven programs that protect children, empower youth, and strengthen resilience."
-        image="/images/donate-hero.jpg"
+        image="/images/gallery-7.jpg"
       />
 
       <div className="container-shell space-y-12 py-12 md:space-y-16 md:py-16">

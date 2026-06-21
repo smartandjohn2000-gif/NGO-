@@ -11,7 +11,7 @@ import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-slate-200 bg-[#0F4C81] text-white">
+    <footer className="mt-20 border-t border-slate-200 bg-[#0B57D0] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8">
         <div className="space-y-4 lg:col-span-2">
           <h3 className="text-lg font-semibold">{SITE_CONFIG.name}</h3>
@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#F4B400]">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#CDE7FF]">
             Quick Links
           </h4>
           <ul className="mt-3 space-y-2">
@@ -55,7 +55,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#F4B400]">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#CDE7FF]">
             Impact Areas
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/85">
@@ -80,7 +80,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#F4B400]">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#CDE7FF]">
             Social
           </h4>
           <ul className="mt-3 space-y-2">

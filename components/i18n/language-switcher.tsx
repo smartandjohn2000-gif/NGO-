@@ -16,7 +16,7 @@ export function LanguageSwitcher({ className, compact = false }: LanguageSwitche
     <label
       data-no-translate="true"
       className={[
-        "inline-flex items-center gap-2 rounded-full border border-[#DBEAFE] bg-white px-3 py-1.5 text-xs font-medium text-[#0D1B4B]",
+        "inline-flex items-center gap-2 rounded-full border border-[#CFE4FF] bg-white px-3 py-1.5 text-xs font-medium text-[#0A245D]",
         className,
       ]
         .filter(Boolean)

@@ -81,7 +81,7 @@ export default async function RootLayout({
         <LanguageProvider defaultLanguage={initialLanguage}>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0F4C81]"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0B57D0]"
           >
             Skip to main content
           </a>
