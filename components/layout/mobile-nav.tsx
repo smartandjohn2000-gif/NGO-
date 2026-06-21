@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HeartHandshake, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const DISPLAY_LABELS: Record<string, string> = {
   "Blog/News": "Blog & News",
@@ -57,12 +58,7 @@ export function MobileNav() {
           onClick={(event) => event.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-[#CFE4FF] px-5 py-4">
-            <div className="inline-flex items-center gap-2">
-              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#0B57D0] text-white">
-                <HeartHandshake size={16} aria-hidden />
-              </span>
-              <span className="text-base font-bold text-[#0A245D]">World Impact Initiative</span>
-            </div>
+            <BrandLogo compact onNavigate={() => setOpen(false)} />
             <button
               type="button"
               onClick={() => setOpen(false)}
