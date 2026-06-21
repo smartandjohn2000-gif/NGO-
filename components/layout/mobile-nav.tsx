@@ -26,7 +26,7 @@ export function MobileNav() {
   }, [open]);
 
   return (
-    <div>
+    <div data-no-translate="true">
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
@@ -53,6 +53,7 @@ export function MobileNav() {
             open ? "translate-x-0" : "-translate-x-full",
           ].join(" ")}
           aria-label="Main navigation drawer"
+          data-no-translate="true"
           onClick={(event) => event.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-[#CFE4FF] px-5 py-4">
@@ -72,8 +73,8 @@ export function MobileNav() {
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Main menu">
-            <ul className="space-y-1">
+          <nav className="flex-1 overflow-y-auto bg-white px-3 py-4" aria-label="Main menu" data-no-translate="true">
+            <ul className="space-y-2">
               {navItems.map((item) => {
                 const isActive =
                   item.href === "/"
@@ -85,11 +86,12 @@ export function MobileNav() {
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className={[
-                        "block w-full rounded-xl px-4 py-3 text-base font-semibold transition",
+                        "block w-full rounded-xl border px-4 py-3 text-base font-semibold transition",
                         isActive
-                          ? "bg-[#0B57D0] text-white"
-                          : "text-[#0A245D] hover:bg-[#EAF3FF]",
+                          ? "border-[#0B57D0] bg-[#0B57D0] text-white"
+                          : "border-[#CFE4FF] bg-white text-[#0A245D] hover:bg-[#EAF3FF]",
                       ].join(" ")}
+                      data-no-translate="true"
                     >
                       {DISPLAY_LABELS[item.label] ?? item.label}
                     </Link>
