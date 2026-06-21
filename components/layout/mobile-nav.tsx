@@ -37,7 +37,7 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 bg-white p-2 text-slate-800 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-[#EFF6FF] p-2 text-[#1565C0] transition hover:bg-[#DBEAFE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1565C0]"
         aria-expanded={open}
         aria-controls="mobile-navigation"
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
@@ -48,7 +48,7 @@ export function MobileNav() {
       <div
         className={[
           "fixed inset-0 z-50 transition-opacity duration-300",
-          open ? "pointer-events-auto bg-slate-900/35 opacity-100" : "pointer-events-none bg-slate-900/0 opacity-0",
+          open ? "pointer-events-auto bg-slate-950/35 opacity-100" : "pointer-events-none bg-slate-900/0 opacity-0",
         ].join(" ")}
         aria-hidden={!open}
         onClick={() => setOpen(false)}
@@ -56,23 +56,23 @@ export function MobileNav() {
         <aside
           id="mobile-navigation"
           className={[
-            "absolute left-0 top-0 flex h-full w-full flex-col bg-white shadow-2xl transition-transform duration-300",
+            "absolute left-0 top-0 flex h-full w-full flex-col bg-white shadow-[0_16px_48px_rgba(21,101,192,0.20)] transition-transform duration-300",
             open ? "translate-x-0" : "-translate-x-full",
           ].join(" ")}
           aria-label="Mobile navigation drawer"
           onClick={(event) => event.stopPropagation()}
         >
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#DBEAFE] px-5 py-4">
             <div className="inline-flex items-center gap-2">
-              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#1A6B3C] text-white">
+              <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#1565C0] text-white">
                 <HeartHandshake size={16} aria-hidden />
               </span>
-              <span className="text-base font-bold text-slate-900">World Impact Initiative</span>
+              <span className="text-base font-bold text-[#0D2B6B]">World Impact Initiative</span>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-slate-300 text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#DBEAFE] text-[#0D2B6B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1565C0]"
               aria-label="Close navigation menu"
             >
               <X size={22} />
@@ -94,8 +94,8 @@ export function MobileNav() {
                   className={[
                     "block w-full rounded-xl px-4 py-3 text-base font-bold uppercase tracking-[0.05em] transition",
                     isActive
-                      ? "bg-[#f3f4f6] text-slate-900"
-                      : "text-slate-800 hover:bg-[#f8f9fa]",
+                      ? "bg-[#1565C0] text-white"
+                      : "text-[#0D1B4B] hover:bg-[#EFF6FF]",
                   ].join(" ")}
                 >
                   {DISPLAY_LABELS[item.label] ?? item.label.toUpperCase()}
@@ -106,12 +106,12 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          <div className="space-y-3 border-t border-slate-200 px-4 py-4">
-            <LanguageSwitcher className="w-full justify-between border-slate-300 bg-white text-slate-700" />
+          <div className="space-y-3 border-t border-[#DBEAFE] px-4 py-4">
+            <LanguageSwitcher className="w-full justify-between border-[#DBEAFE] bg-white text-[#0D1B4B]" />
             <Link
               href="/donate"
               onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#2FAE66] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#258c52] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2FAE66]"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#F97316] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#C2410C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]"
             >
               Donate
             </Link>

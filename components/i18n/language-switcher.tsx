@@ -16,7 +16,7 @@ export function LanguageSwitcher({ className, compact = false }: LanguageSwitche
     <label
       data-no-translate="true"
       className={[
-        "inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-sm",
+        "inline-flex items-center gap-2 rounded-full border border-[#DBEAFE] bg-white px-3 py-1.5 text-xs font-medium text-[#0D1B4B]",
         className,
       ]
         .filter(Boolean)
@@ -27,7 +27,7 @@ export function LanguageSwitcher({ className, compact = false }: LanguageSwitche
       <select
         value={language}
         onChange={(event) => setLanguage(event.target.value as SupportedLanguage)}
-        className="min-h-8 rounded-md bg-transparent text-sm text-current outline-none"
+        className="min-h-8 rounded-md bg-transparent text-xs text-current outline-none"
         aria-label="Select language"
       >
         {LANGUAGE_OPTIONS.map((option) => (

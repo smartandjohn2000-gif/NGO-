@@ -1,13 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #10263b;
-  --brand-blue: #0f4c81;
-  --brand-sky: #4da6ff;
-  --brand-gold: #f4c542;
-  --accent-green: #2fae66;
-  --accent-teal: #5bb9b4;
+  --primary: #1565c0;
+  --primary-dark: #0d2b6b;
+  --primary-mid: #1976d2;
+  --primary-light: #bbdefb;
+  --primary-pale: #eff6ff;
+  --sky: #2196f3;
+  --sky-light: #90caf9;
+  --sky-pale: #e3f2fd;
+  --orange: #f97316;
+  --orange-dark: #c2410c;
+  --orange-light: #fed7aa;
+  --orange-pale: #fff7ed;
+  --green: #16a34a;
+  --green-lt: #bbf7d0;
+  --amber: #f59e0b;
+  --white: #ffffff;
+  --cream: #f8faff;
+  --charcoal: #0d1b4b;
+  --mid: #64748b;
+  --border: #dbeafe;
+  --border-light: #e2e8f0;
+  --background: var(--white);
+  --foreground: var(--charcoal);
 }
 
 @theme inline {
@@ -21,14 +37,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.68;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 html {
-  font-size: clamp(100%, 0.35vw + 99%, 112.5%);
+  font-size: 100%;
 }
 
 h1,
@@ -55,7 +71,7 @@ iframe {
 }
 
 :focus-visible {
-  outline: 3px solid #f4b400;
+  outline: 3px solid var(--sky);
   outline-offset: 3px;
 }
 
@@ -76,4 +92,143 @@ iframe {
 
 .surface-card {
   @apply rounded-2xl bg-white shadow-md;
+}
+
+.wii-nav-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  color: var(--charcoal);
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.wii-nav-link:hover,
+.wii-nav-link.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.wii-hero {
+  position: relative;
+  min-height: 100dvh;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wii-hero__slides {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 300%;
+  transition: transform 1s ease-in-out;
+  will-change: transform;
+}
+
+.wii-hero__slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.06);
+  animation: heroKenBurns 8s ease-in-out forwards;
+}
+
+.wii-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgb(13 43 107 / 0.75) 0%, rgb(21 101 192 / 0.52) 52%, rgb(13 43 107 / 0.66) 100%);
+}
+
+.wii-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.wii-hero__eyebrow {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sky-light);
+}
+
+.wii-hero__title {
+  max-width: 1000px;
+  font-size: clamp(2rem, 4.2vw, 4.2rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.wii-hero__subtitle {
+  max-width: 760px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgb(255 255 255 / 0.95);
+}
+
+.wii-hero__actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.wii-hero__ghost {
+  background: rgb(255 255 255 / 0.16);
+  color: var(--white);
+  border: 1px solid rgb(255 255 255 / 0.45);
+}
+
+.wii-hero__ghost:hover {
+  background: rgb(255 255 255 / 0.24);
+  color: var(--white);
+}
+
+.wii-hero__dots {
+  margin-top: 1rem;
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.wii-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgb(255 255 255 / 0.48);
+}
+
+.wii-dot.active {
+  background: var(--white);
+}
+
+@keyframes heroKenBurns {
+  from { transform: scale(1.06); }
+  to { transform: scale(1); }
+}
+
+@media (max-width: 767px) {
+  .wii-hero__content {
+    text-align: left;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .wii-hero__actions {
+    justify-content: flex-start;
+  }
 }

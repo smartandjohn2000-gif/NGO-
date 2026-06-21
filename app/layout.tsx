@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { LANGUAGE_OPTIONS, SITE_CONFIG, type SupportedLanguage } from "@/lib/constants";
@@ -12,7 +12,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const lora = Lora({
+const lora = Playfair_Display({
   variable: "--font-lora",
   subsets: ["latin"],
 });
@@ -77,7 +77,7 @@ export default async function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full overflow-x-hidden bg-[#F7F9FC] text-slate-800">
+      <body className="min-h-full overflow-x-hidden bg-white text-slate-800">
         <LanguageProvider defaultLanguage={initialLanguage}>
           <a
             href="#main-content"

@@ -2,7 +2,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { HomeHeroParallax } from "@/components/sections/home-hero-parallax";
+import { HomeHeroSlideshow } from "@/components/sections/home-hero-slideshow";
 import { ProgramsStackedSections } from "@/components/sections/programs-stacked-sections";
 import { IMPACT_THEMES, PROGRAMS, SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
 
@@ -32,7 +32,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HomeHeroParallax />
+      <HomeHeroSlideshow />
 
       <AnimatedSection className="container-shell py-4 md:py-10">
         <div className="grid gap-6 rounded-3xl border border-[#CFE7FF] bg-gradient-to-br from-[#FFFFFF] to-[#EFF7FF] p-8 shadow-sm md:grid-cols-2 md:p-12">
