@@ -8,20 +8,13 @@ import { NAV_ITEMS } from "@/lib/constants";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 const DISPLAY_LABELS: Record<string, string> = {
-  Home: "HOME",
-  "About Us": "ABOUT US",
-  Programs: "PROGRAMS",
-  Gallery: "GALLERY",
-  "Blog/News": "BLOG & NEWS",
-  Events: "EVENTS",
-  Volunteer: "VOLUNTEER",
-  Contact: "CONTACT",
+  "Blog/News": "Blog & News",
 };
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const navItems = useMemo(() => NAV_ITEMS.filter((item) => item.href !== "/donate"), []);
+  const navItems = useMemo(() => NAV_ITEMS, []);
 
   useEffect(() => {
     if (!open) return;
@@ -33,13 +26,13 @@ export function MobileNav() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div>
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-[#EAF3FF] p-2 text-[#0B57D0] transition hover:bg-[#CFE4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#CFE4FF] bg-[#EAF3FF] p-2 text-[#0B57D0] transition hover:bg-[#D7E9FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
         aria-expanded={open}
-        aria-controls="mobile-navigation"
+        aria-controls="primary-navigation-drawer"
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
       >
         <Menu size={28} />
@@ -54,12 +47,12 @@ export function MobileNav() {
         onClick={() => setOpen(false)}
       >
         <aside
-          id="mobile-navigation"
+          id="primary-navigation-drawer"
           className={[
-            "absolute left-0 top-0 flex h-full w-full flex-col bg-white shadow-[0_16px_48px_rgba(11,87,208,0.24)] transition-transform duration-300",
+            "absolute left-0 top-0 flex h-full w-full max-w-sm flex-col bg-white shadow-[0_16px_48px_rgba(11,87,208,0.24)] transition-transform duration-300",
             open ? "translate-x-0" : "-translate-x-full",
           ].join(" ")}
-          aria-label="Mobile navigation drawer"
+          aria-label="Main navigation drawer"
           onClick={(event) => event.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-[#CFE4FF] px-5 py-4">
@@ -79,7 +72,7 @@ export function MobileNav() {
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Mobile primary">
+          <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Main menu">
             <ul className="space-y-1">
               {navItems.map((item) => {
                 const isActive =
@@ -87,34 +80,30 @@ export function MobileNav() {
                     ? pathname === item.href
                     : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={[
-                    "block w-full rounded-xl px-4 py-3 text-base font-bold uppercase tracking-[0.05em] transition",
-                    isActive
-                      ? "bg-[#0B57D0] text-white"
-                      : "text-[#0A245D] hover:bg-[#EAF3FF]",
-                  ].join(" ")}
-                >
-                  {DISPLAY_LABELS[item.label] ?? item.label.toUpperCase()}
-                </Link>
-              </li>
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={[
+                        "block w-full rounded-xl px-4 py-3 text-base font-semibold transition",
+                        isActive
+                          ? "bg-[#0B57D0] text-white"
+                          : "text-[#0A245D] hover:bg-[#EAF3FF]",
+                      ].join(" ")}
+                    >
+                      {DISPLAY_LABELS[item.label] ?? item.label}
+                    </Link>
+                  </li>
                 );
               })}
             </ul>
           </nav>
 
-          <div className="space-y-3 border-t border-[#CFE4FF] px-4 py-4">
-            <LanguageSwitcher className="w-full justify-between border-[#CFE4FF] bg-white text-[#0A245D]" />
-            <Link
-              href="/donate"
-              onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#0B57D0] px-4 py-3 text-base font-semibold text-white transition hover:bg-[#083EA0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
-            >
-              Donate
-            </Link>
+          <div className="border-t border-[#CFE4FF] px-4 py-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#0B57D0]">
+              Language
+            </p>
+            <LanguageSwitcher className="w-full justify-between rounded-xl border-[#CFE4FF] bg-white text-[#0A245D]" />
           </div>
         </aside>
       </div>
