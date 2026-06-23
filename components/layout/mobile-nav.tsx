@@ -114,6 +114,28 @@ export function MobileNav() {
               <LanguageSwitcher className="w-full justify-between rounded-xl border-[#CFE4FF] bg-white text-[#0A245D]" />
             </div>
 
+            {/* Social media links, near the top of the menu */}
+            <div className="border-b border-[#EAF3FF] px-4 py-4">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#0B57D0]">
+                Follow Us
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {SOCIAL_LINKS.map((social) => (
+                  <li key={social.label}>
+                    <Link
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="inline-flex min-h-9 items-center rounded-full border border-[#CFE4FF] bg-[#F4F9FF] px-3 py-1.5 text-xs font-semibold text-[#0A245D] transition hover:bg-[#EAF3FF] hover:text-[#0B57D0]"
+                    >
+                      {social.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Primary navigation links */}
             <nav className="px-3 py-3" aria-label="Main menu">
               <ul className="space-y-1.5">
@@ -146,28 +168,6 @@ export function MobileNav() {
                 })}
               </ul>
             </nav>
-
-            {/* Social media links, pinned to the bottom of the scroll area */}
-            <div className="mt-auto border-t border-[#CFE4FF] px-4 py-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#0B57D0]">
-                Follow Us
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {SOCIAL_LINKS.map((social) => (
-                  <li key={social.label}>
-                    <Link
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setOpen(false)}
-                      className="inline-flex min-h-9 items-center rounded-full border border-[#CFE4FF] bg-[#F4F9FF] px-3 py-1.5 text-xs font-semibold text-[#0A245D] transition hover:bg-[#EAF3FF] hover:text-[#0B57D0]"
-                    >
-                      {social.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </aside>
       </div>
