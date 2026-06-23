@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { DesktopNav } from "@/components/layout/desktop-nav";
-import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 export function SiteHeader() {
   return (
@@ -29,11 +28,11 @@ export function SiteHeader() {
               className="size-full object-cover"
             />
           </span>
-          <span className="hidden min-w-0 flex-col leading-tight sm:flex">
-            <span className="truncate font-serif text-[1.06rem] font-bold text-[#0A245D]">
+          <span className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate font-serif text-[0.95rem] font-bold text-[#0A245D] sm:text-[1.06rem]">
               World Impact Initiative
             </span>
-            <span className="truncate text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#0B57D0]">
+            <span className="hidden truncate text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#0B57D0] sm:block">
               Dignity · Equality · Opportunity
             </span>
           </span>
@@ -42,10 +41,6 @@ export function SiteHeader() {
         <DesktopNav />
 
         <div className="flex shrink-0 items-center justify-end gap-2">
-          <LanguageSwitcher
-            compact
-            className="hidden xl:inline-flex"
-          />
           <ButtonLink
             href="/donate"
             variant="primary"

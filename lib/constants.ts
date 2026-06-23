@@ -67,6 +67,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Programs", href: "/programs" },
+  { label: "Projects", href: "/projects" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog/News", href: "/blog" },
   { label: "Events", href: "/events" },
