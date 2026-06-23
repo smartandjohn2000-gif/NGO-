@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { DesktopNav } from "@/components/layout/desktop-nav";
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
 
 export function SiteHeader() {
   return (
@@ -41,6 +42,10 @@ export function SiteHeader() {
         <DesktopNav />
 
         <div className="flex shrink-0 items-center justify-end gap-2">
+          <LanguageSwitcher
+            compact
+            className="hidden lg:inline-flex"
+          />
           <ButtonLink
             href="/donate"
             variant="primary"
