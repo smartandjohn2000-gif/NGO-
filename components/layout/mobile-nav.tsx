@@ -31,12 +31,13 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-[#CFE4FF] bg-[#EAF3FF] p-2 text-[#0B57D0] transition hover:bg-[#D7E9FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
+        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#CFE4FF] bg-[#EAF3FF] px-3 py-2 text-sm font-semibold text-[#0B57D0] transition hover:bg-[#D7E9FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B57D0]"
         aria-expanded={open}
         aria-controls="primary-navigation-drawer"
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
       >
-        <Menu size={28} />
+        <Menu size={22} aria-hidden />
+        <span>Menu</span>
       </button>
 
       <div
