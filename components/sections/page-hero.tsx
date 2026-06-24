@@ -12,10 +12,9 @@ type PageHeroProps = {
    */
   highlight?: boolean;
   /**
-   * When true, the photograph is kept clear and lightly transparent while the
-   * heading is set in white on a black panel and the subtitle in black on a
-   * white panel, so the writing reads crisply on white and black over the
-   * image.
+   * When true, the photograph is kept clear and only lightly dimmed, and the
+   * heading and subtitle are rendered as plain white text (with a soft shadow
+   * for legibility) without any backing panel behind the words.
    */
   mono?: boolean;
   primaryAction?: { label: string; href: string };
@@ -55,15 +54,11 @@ export function PageHero({
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         {mono ? (
           <>
-            <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
-              <span className="box-decoration-clone rounded-lg bg-black/80 px-3 py-1 text-white shadow-lg ring-1 ring-white/20">
-                {title}
-              </span>
+            <h1 className="max-w-4xl text-4xl font-bold leading-tight text-white [text-shadow:_0_2px_12px_rgba(0,0,0,0.55)] md:text-6xl">
+              {title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed md:text-[1.3rem]">
-              <span className="box-decoration-clone rounded-md bg-white/90 px-2 py-1 text-[#111111] shadow-md">
-                {subtitle}
-              </span>
+            <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed text-white [text-shadow:_0_1px_8px_rgba(0,0,0,0.5)] md:text-[1.3rem]">
+              {subtitle}
             </p>
           </>
         ) : highlight ? (
