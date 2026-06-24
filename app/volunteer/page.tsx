@@ -16,8 +16,7 @@ export default function VolunteerPage() {
       <PageHero
         title="Volunteer with World Impact Initiative"
         subtitle="Bring your skills, time, and compassion to support vulnerable and underserved communities."
-        image="/images/volunteer-hero-team.jpg"
-        mono
+        image="/images/main_uploads/main-2.jpg"
       />
       <section className="container-shell py-14 md:py-20">
         <SectionHeading

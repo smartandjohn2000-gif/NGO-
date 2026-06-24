@@ -119,75 +119,20 @@ iframe {
   overflow: hidden;
 }
 
-.wii-hero__stage {
+.wii-hero__image {
   position: absolute;
   inset: 0;
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 
-.wii-hero__slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateY(40px) scale(1.04);
-  transition: opacity 1.1s ease, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.wii-hero__slide.is-active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.wii-hero__media {
-  object-fit: cover;
-  object-position: center center;
-}
-
-/* Lighter, mostly-transparent wash so the photography stays visible
-   while keeping white text legible. */
 .wii-hero__overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
   background:
-    linear-gradient(
-      100deg,
-      rgb(7 18 41 / 0.62) 0%,
-      rgb(7 18 41 / 0.34) 42%,
-      rgb(7 18 41 / 0.12) 100%
-    );
-}
-
-.wii-hero__dots {
-  position: absolute;
-  z-index: 3;
-  bottom: 1.6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.55rem;
-}
-
-.wii-hero__dot {
-  width: 30px;
-  height: 4px;
-  border-radius: 999px;
-  border: none;
-  background: rgb(255 255 255 / 0.45);
-  cursor: pointer;
-  transition: background 0.25s ease, width 0.25s ease;
-}
-
-.wii-hero__dot.is-active {
-  width: 44px;
-  background: var(--primary-mid);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wii-hero__slide {
-    transition: opacity 0.4s ease;
-    transform: none;
-  }
+    linear-gradient(110deg, rgb(8 62 160 / 0.26) 5%, rgb(11 87 208 / 0.14) 50%, rgb(10 36 93 / 0.18) 100%);
 }
 
 .wii-hero__content {
@@ -217,10 +162,6 @@ iframe {
   font-weight: 700;
   color: rgb(255 255 255 / 0.99);
   text-shadow: 0 6px 20px rgb(10 36 93 / 0.3);
-}
-
-.wii-hero__accent {
-  color: var(--sky-light);
 }
 
 .wii-hero__actions {

@@ -2,7 +2,6 @@ import { eventRsvpSchema } from "@/lib/schemas";
 import { getSupabaseAdminClientOrThrow } from "@/lib/supabase/admin";
 import { sendSubmissionNotification } from "@/lib/email";
 import { insertNotificationLog } from "@/lib/form-notifications";
-import { SITE_CONFIG } from "@/lib/constants";
 
 export async function POST(request: Request) {
   try {
@@ -31,7 +30,6 @@ export async function POST(request: Request) {
         formType: "event_rsvp",
         subject: `New event RSVP submission (${parsed.eventId})`,
         replyTo: parsed.email,
-        recipients: [SITE_CONFIG.email],
         fields: {
           event_id: parsed.eventId,
           full_name: parsed.fullName,

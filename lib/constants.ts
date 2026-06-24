@@ -67,7 +67,6 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Programs", href: "/programs" },
-  { label: "Projects", href: "/projects" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog/News", href: "/blog" },
   { label: "Events", href: "/events" },
@@ -266,7 +265,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "gender-equality-protection",
     title: "Gender Equality & Protection",
-    image: "/images/impact/impact-gender-equality.jpg",
+    image: "/images/main_uploads/main-5.jpg",
     heroSummary:
       "We partner with communities to prevent gender-based violence and expand safe access to leadership, justice, and opportunity.",
     whyItMatters:
@@ -307,7 +306,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "child-protection-human-rights",
     title: "Child Protection & Human Rights",
-    image: "/images/impact/impact-child-protection.jpg",
+    image: "/images/main_uploads/main-2.jpg",
     heroSummary:
       "Our child-rights programs protect vulnerable children through prevention, response, and family-centered support.",
     whyItMatters:
@@ -348,7 +347,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "youth-empowerment-technical-skills-training",
     title: "Youth Empowerment & Technical Skills Training",
-    image: "/images/impact/impact-youth-empowerment.jpg",
+    image: "/images/main_uploads/main-1.jpg",
     heroSummary:
       "We equip youth with technical, digital, and entrepreneurial skills that unlock employment and leadership opportunities.",
     whyItMatters:
@@ -389,7 +388,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "disability-inclusion-accessibility",
     title: "Disability Inclusion & Accessibility",
-    image: "/images/impact/impact-disability-inclusion.jpg",
+    image: "/images/main_uploads/main-9.jpg",
     heroSummary:
       "We champion equal access by removing barriers and co-creating inclusive services with persons with disabilities.",
     whyItMatters:
@@ -430,7 +429,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "health-services-inclusive-education",
     title: "Health Services & Inclusive Education",
-    image: "/images/impact/impact-health-education.jpg",
+    image: "/images/main_uploads/main-7.jpg",
     heroSummary:
       "We connect families to essential health and education services through equitable, inclusive community systems.",
     whyItMatters:
@@ -471,7 +470,7 @@ export const PROGRAMS: ProgramContent[] = [
   {
     slug: "crisis-response-humanitarian-relief",
     title: "Crisis Response & Humanitarian Relief",
-    image: "/images/impact/impact-crisis-response.jpg",
+    image: "/images/main_uploads/main-8.jpg",
     heroSummary:
       "We provide rapid, accountable humanitarian assistance while helping communities recover with dignity and resilience.",
     whyItMatters:
@@ -511,138 +510,33 @@ export const PROGRAMS: ProgramContent[] = [
   },
 ];
 
-export const FOUNDER_STORY: {
-  eyebrow: string;
-  title: string;
-  paragraphs: { text: string; quote?: boolean }[];
-} = {
-  eyebrow: "Why World Impact Initiative Was Founded",
-  title: "The Cry That Changed Everything",
-  paragraphs: [
-    {
-      text: "It was raining the day the founder's life changed forever.",
-    },
-    {
-      text: "On a muddy roadside, surrounded by families displaced by conflict and poverty, there was a little girl sitting alone beneath a broken shelter. She could not have been more than eight years old.",
-    },
-    {
-      text: "Her clothes were torn. Her face was stained with tears.",
-    },
-    {
-      text: "As the founder approached her, she held tightly to her younger brother, who was living with a disability. Their mother had passed away months earlier. Their father had disappeared during a crisis. They had nowhere to go.",
-    },
-    {
-      text: "When asked what she needed most, the little girl did not ask for food. She did not ask for money. She did not ask for clothes.",
-    },
-    {
-      text: "Instead, she whispered:",
-    },
-    {
-      text: "Can someone please tell my brother that his life matters?",
-      quote: true,
-    },
-    {
-      text: "The founder stood speechless. In that moment, the pain of the world seemed to come rushing together.",
-    },
-    {
-      text: "The pain of girls denied opportunities simply because of their gender.",
-    },
-    {
-      text: "The pain of children whose rights were ignored and whose voices were never heard.",
-    },
-    {
-      text: "The pain of young people filled with dreams but trapped in unemployment and hopelessness.",
-    },
-    {
-      text: "The pain of persons with disabilities who faced rejection instead of acceptance.",
-    },
-    {
-      text: "The pain of families unable to access healthcare, education, or basic services.",
-    },
-    {
-      text: "The pain of communities devastated by disasters, conflict, and humanitarian crises.",
-    },
-    {
-      text: "Behind every statistic was a human being. Behind every report was a child crying in silence. Behind every challenge was a life waiting for hope.",
-    },
-    {
-      text: "That night, the founder could not sleep. The image of the little girl and her brother remained in their heart. A single question echoed again and again:",
-    },
-    {
-      text: "If we have the ability to help, how can we remain silent?",
-      quote: true,
-    },
-    {
-      text: "From that question, World Impact Initiative was born. Not as an organization, but as a promise.",
-    },
-    {
-      text: "A promise to protect children whose voices have been ignored.",
-    },
-    {
-      text: "A promise to fight for gender equality and human dignity.",
-    },
-    {
-      text: "A promise to empower young people with skills and opportunities.",
-    },
-    {
-      text: "A promise to ensure that disability is never a reason for exclusion.",
-    },
-    {
-      text: "A promise to make health services and education accessible to all.",
-    },
-    {
-      text: "A promise to stand beside communities during their darkest moments of crisis and disaster.",
-    },
-    {
-      text: "Today, every life touched by World Impact Initiative carries the spirit of that promise.",
-    },
-    {
-      text: "Because no child should ever wonder if their life matters. No woman should be denied her rights. No young person should lose hope. No person with a disability should be left behind. And no community should face suffering alone.",
-    },
-    {
-      text: "The world changes when people choose to care.",
-    },
-    {
-      text: "World Impact Initiative exists because one child's cry became a mission to restore hope, dignity, and opportunity for all.",
-    },
-  ],
-};
-
-export const INSPIRATION_INTRO = [
-  "World Impact Initiative is inspired by the belief that lasting change begins when individuals and communities choose to stand for dignity, equality, and human rights in the face of injustice.",
-  "Across history, remarkable individuals have demonstrated courage, conviction, and compassion in ways that have reshaped society. Their lives continue to guide our mission.",
-] as const;
+export const ABOUT_STORY_PLACEHOLDER =
+  "Founder story content was requested to be pasted exactly as provided, but the full story text was not included in the project brief. Replace this block with the approved founder narrative from World Impact Initiative leadership.";
 
 export const INSPIRATIONS = [
   {
     name: "Nelson Mandela",
-    focus:
-      "Nelson Mandela's lifelong struggle against apartheid demonstrated the power of resilience, forgiveness, and reconciliation. His legacy reminds us that even after profound injustice, societies can choose healing over division and dignity over retaliation.",
+    focus: "Justice, reconciliation, and dignity for all.",
   },
   {
     name: "Wole Soyinka",
-    focus:
-      "Wole Soyinka, Nobel Laureate and writer, has consistently used his voice to confront oppression and defend human rights. His work reflects the importance of truth, accountability, and moral courage in protecting human dignity.",
+    focus: "Human rights advocacy and principled leadership.",
   },
   {
     name: "Viola Desmond",
-    focus:
-      "Viola Desmond challenged racial segregation through an act of quiet but powerful resistance. Her courage helped reshape Canada's understanding of equality and civil rights, showing that individual action can spark national change.",
+    focus: "Courage against injustice and structural discrimination.",
   },
   {
     name: "Terry Fox",
-    focus:
-      "Terry Fox transformed personal adversity into a national movement of hope and collective action. His Marathon of Hope continues to inspire determination, unity, and service for the public good.",
+    focus: "Service, resilience, and action for public good.",
   },
   {
     name: "Jean Vanier",
-    focus:
-      "Jean Vanier redefined inclusion by building communities where people of all abilities could live with dignity, respect, and belonging. His work emphasizes compassion, shared humanity, and the value of every person.",
+    focus: "Inclusion, compassion, and shared humanity.",
   },
   {
     name: "Malala Yousafzai",
-    focus:
-      "Malala Yousafzai is a global advocate for girls' education and children's rights. Her courage in the face of extreme adversity has made her a symbol of resilience, education equity, and the power of youth voice.",
+    focus: "Education equity and youth voice.",
   },
 ] as const;
 
@@ -794,6 +688,7 @@ export const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://linktr.ee/worldimpactinitiative.org" },
   { label: "LinkedIn", href: "https://linktr.ee/worldimpactinitiative.org" },
   { label: "X (Twitter)", href: "https://linktr.ee/worldimpactinitiative.org" },
+  { label: "YouTube", href: "https://linktr.ee/worldimpactinitiative.org" },
 ] as const;
 
 export const ADMIN_ROLES = [

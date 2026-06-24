@@ -91,7 +91,7 @@ export function ProgramsStackedSections({ programs }: ProgramsStackedSectionsPro
               <p className="text-sm font-semibold uppercase tracking-[0.12em]" style={{ color: theme.strong }}>
                 {program.title}
               </p>
-              <h3 className="mt-3 text-3xl font-bold text-slate-900">{program.title}</h3>
+              <h3 className="mt-3 text-3xl font-bold text-[#083EA0]">{program.title}</h3>
               <p className="mt-4 text-lg leading-relaxed text-slate-700">{program.heroSummary}</p>
               <p className="mt-4 text-lg leading-relaxed text-slate-700">{program.whyItMatters}</p>
               <div className="mt-6 flex flex-wrap gap-3">

@@ -18,8 +18,7 @@ export default function ProgramsPage() {
       <PageHero
         title="Programs for protection, empowerment, and resilience"
         subtitle="Our integrated portfolio addresses root causes while strengthening long-term community systems."
-        image="/images/programs-hero-tree-planting.jpg"
-        mono
+        image="/images/main_uploads/main-5.jpg"
       />
 
       <div className="container-shell py-14 md:py-20">

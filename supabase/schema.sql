@@ -124,22 +124,6 @@ create table if not exists public.form_notification_logs (
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.donations (
-  id uuid primary key default gen_random_uuid(),
-  donor_name text,
-  donor_email text not null,
-  amount_cents integer not null check (amount_cents > 0),
-  currency text not null default 'cad',
-  frequency text not null default 'one_time' check (frequency in ('one_time', 'monthly')),
-  designation text,
-  provider text not null default 'stripe',
-  status text not null default 'pending' check (status in ('pending', 'completed', 'failed')),
-  stripe_session_id text,
-  stripe_payment_intent_id text,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
 create table if not exists public.beneficiaries (
   id uuid primary key default gen_random_uuid(),
   full_name text not null,
@@ -180,11 +164,6 @@ create trigger trg_beneficiaries_updated_at
 before update on public.beneficiaries
 for each row execute procedure public.handle_profile_update_timestamp();
 
-drop trigger if exists trg_donations_updated_at on public.donations;
-create trigger trg_donations_updated_at
-before update on public.donations
-for each row execute procedure public.handle_profile_update_timestamp();
-
 create or replace function public.create_profile_for_new_user()
 returns trigger
 language plpgsql
@@ -213,7 +192,6 @@ alter table public.member_registrations enable row level security;
 alter table public.form_notification_logs enable row level security;
 alter table public.beneficiaries enable row level security;
 alter table public.beneficiary_case_notes enable row level security;
-alter table public.donations enable row level security;
 
 drop policy if exists "users can read their profile" on public.profiles;
 create policy "users can read their profile"
@@ -263,13 +241,6 @@ create policy "service role manages member registrations"
 drop policy if exists "service role manages form notification logs" on public.form_notification_logs;
 create policy "service role manages form notification logs"
   on public.form_notification_logs
-  for all
-  using (auth.role() = 'service_role')
-  with check (auth.role() = 'service_role');
-
-drop policy if exists "service role manages donations" on public.donations;
-create policy "service role manages donations"
-  on public.donations
   for all
   using (auth.role() = 'service_role')
   with check (auth.role() = 'service_role');

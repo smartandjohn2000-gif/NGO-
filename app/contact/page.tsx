@@ -9,6 +9,7 @@ import {
   MapPin,
   MessageSquareShare,
   PhoneCall,
+  PlayCircle,
 } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -31,6 +32,7 @@ const socialIcons = [
     href: "https://linktr.ee/worldimpactinitiative.org",
     icon: MessageSquareShare,
   },
+  { label: "YouTube", href: "https://linktr.ee/worldimpactinitiative.org", icon: PlayCircle },
 ];
 
 export default function ContactPage() {

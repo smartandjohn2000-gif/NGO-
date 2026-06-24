@@ -37,23 +37,27 @@ export default function HomePage() {
       <AnimatedSection className="container-shell py-4 md:py-10">
         <div className="grid gap-6 rounded-3xl border border-[#CFE4FF] bg-gradient-to-br from-[#FFFFFF] to-[#EAF3FF] p-8 shadow-sm md:grid-cols-2 md:p-12">
           <div className="space-y-4">
-            <p className="text-base font-semibold uppercase tracking-[0.14em] text-[#0B57D0]/80">
-              Who We Are
-            </p>
-            <p className="text-lg leading-relaxed text-slate-700 md:text-xl">
+            <SectionHeading
+              eyebrow="Who We Are"
+              title="A trusted partner for inclusive community development"
+              description="World Impact Initiative is a Canadian nonprofit organization committed to empowering individuals and communities facing social, economic, and humanitarian challenges."
+            />
+            <p className="text-lg text-slate-700">
+              We believe lasting change begins with people and is strengthened
+              through partnership, inclusion, opportunity, and volunteerism.
               Our work focuses on protecting human rights, supporting vulnerable
-              children and families, promoting equitable access to education,
-              health resources, fostering opportunities for youth and persons
-              with disabilities/special needs.
+              children and families, promoting equitable access to education and
+              health resources, and fostering opportunities for youth and
+              persons with disabilities.
             </p>
           </div>
           <div className="space-y-6">
             <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
-              <h3 className="text-lg font-semibold text-slate-900">Mission</h3>
+              <h3 className="text-lg font-semibold text-[#083EA0]">Mission</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.mission}</p>
             </div>
             <div className="rounded-2xl border border-[#CFE4FF] bg-white p-6">
-              <h3 className="text-lg font-semibold text-slate-900">Vision</h3>
+              <h3 className="text-lg font-semibold text-[#083EA0]">Vision</h3>
               <p className="mt-2 text-lg text-slate-700">{SITE_CONFIG.vision}</p>
             </div>
           </div>

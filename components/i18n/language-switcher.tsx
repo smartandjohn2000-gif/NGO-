@@ -16,14 +16,14 @@ export function LanguageSwitcher({ className, compact = false }: LanguageSwitche
     <label
       data-no-translate="true"
       className={[
-        "inline-flex items-center gap-2 rounded-full border border-[#CFE4FF] bg-white px-3 py-1.5 text-xs font-bold text-[#0A245D]",
+        "inline-flex items-center gap-2 rounded-full border border-[#CFE4FF] bg-white px-3 py-1.5 text-xs font-medium text-[#0A245D]",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
     >
       <Languages size={16} aria-hidden />
-      <span className={compact ? "sr-only" : "font-bold"}>Language</span>
+      <span className={compact ? "sr-only" : "font-medium"}>Language</span>
       <select
         value={language}
         onChange={(event) => setLanguage(event.target.value as SupportedLanguage)}
