@@ -26,6 +26,7 @@ export default function AboutPage() {
         title="About World Impact Initiative"
         subtitle="A Canadian nonprofit dedicated to human dignity, inclusion, and sustainable community impact."
         image="/images/about-hero-team.jpg"
+        mono
       />
 
       <div className="container-shell space-y-14 py-14 md:space-y-20 md:py-20">
