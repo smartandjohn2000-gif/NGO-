@@ -511,33 +511,138 @@ export const PROGRAMS: ProgramContent[] = [
   },
 ];
 
-export const ABOUT_STORY_PLACEHOLDER =
-  "Founder story content was requested to be pasted exactly as provided, but the full story text was not included in the project brief. Replace this block with the approved founder narrative from World Impact Initiative leadership.";
+export const FOUNDER_STORY: {
+  eyebrow: string;
+  title: string;
+  paragraphs: { text: string; quote?: boolean }[];
+} = {
+  eyebrow: "Why World Impact Initiative Was Founded",
+  title: "The Cry That Changed Everything",
+  paragraphs: [
+    {
+      text: "It was raining the day the founder's life changed forever.",
+    },
+    {
+      text: "On a muddy roadside, surrounded by families displaced by conflict and poverty, there was a little girl sitting alone beneath a broken shelter. She could not have been more than eight years old.",
+    },
+    {
+      text: "Her clothes were torn. Her face was stained with tears.",
+    },
+    {
+      text: "As the founder approached her, she held tightly to her younger brother, who was living with a disability. Their mother had passed away months earlier. Their father had disappeared during a crisis. They had nowhere to go.",
+    },
+    {
+      text: "When asked what she needed most, the little girl did not ask for food. She did not ask for money. She did not ask for clothes.",
+    },
+    {
+      text: "Instead, she whispered:",
+    },
+    {
+      text: "Can someone please tell my brother that his life matters?",
+      quote: true,
+    },
+    {
+      text: "The founder stood speechless. In that moment, the pain of the world seemed to come rushing together.",
+    },
+    {
+      text: "The pain of girls denied opportunities simply because of their gender.",
+    },
+    {
+      text: "The pain of children whose rights were ignored and whose voices were never heard.",
+    },
+    {
+      text: "The pain of young people filled with dreams but trapped in unemployment and hopelessness.",
+    },
+    {
+      text: "The pain of persons with disabilities who faced rejection instead of acceptance.",
+    },
+    {
+      text: "The pain of families unable to access healthcare, education, or basic services.",
+    },
+    {
+      text: "The pain of communities devastated by disasters, conflict, and humanitarian crises.",
+    },
+    {
+      text: "Behind every statistic was a human being. Behind every report was a child crying in silence. Behind every challenge was a life waiting for hope.",
+    },
+    {
+      text: "That night, the founder could not sleep. The image of the little girl and her brother remained in their heart. A single question echoed again and again:",
+    },
+    {
+      text: "If we have the ability to help, how can we remain silent?",
+      quote: true,
+    },
+    {
+      text: "From that question, World Impact Initiative was born. Not as an organization, but as a promise.",
+    },
+    {
+      text: "A promise to protect children whose voices have been ignored.",
+    },
+    {
+      text: "A promise to fight for gender equality and human dignity.",
+    },
+    {
+      text: "A promise to empower young people with skills and opportunities.",
+    },
+    {
+      text: "A promise to ensure that disability is never a reason for exclusion.",
+    },
+    {
+      text: "A promise to make health services and education accessible to all.",
+    },
+    {
+      text: "A promise to stand beside communities during their darkest moments of crisis and disaster.",
+    },
+    {
+      text: "Today, every life touched by World Impact Initiative carries the spirit of that promise.",
+    },
+    {
+      text: "Because no child should ever wonder if their life matters. No woman should be denied her rights. No young person should lose hope. No person with a disability should be left behind. And no community should face suffering alone.",
+    },
+    {
+      text: "The world changes when people choose to care.",
+    },
+    {
+      text: "World Impact Initiative exists because one child's cry became a mission to restore hope, dignity, and opportunity for all.",
+    },
+  ],
+};
+
+export const INSPIRATION_INTRO = [
+  "World Impact Initiative is inspired by the belief that lasting change begins when individuals and communities choose to stand for dignity, equality, and human rights in the face of injustice.",
+  "Across history, remarkable individuals have demonstrated courage, conviction, and compassion in ways that have reshaped society. Their lives continue to guide our mission.",
+] as const;
 
 export const INSPIRATIONS = [
   {
     name: "Nelson Mandela",
-    focus: "Justice, reconciliation, and dignity for all.",
+    focus:
+      "Nelson Mandela's lifelong struggle against apartheid demonstrated the power of resilience, forgiveness, and reconciliation. His legacy reminds us that even after profound injustice, societies can choose healing over division and dignity over retaliation.",
   },
   {
     name: "Wole Soyinka",
-    focus: "Human rights advocacy and principled leadership.",
+    focus:
+      "Wole Soyinka, Nobel Laureate and writer, has consistently used his voice to confront oppression and defend human rights. His work reflects the importance of truth, accountability, and moral courage in protecting human dignity.",
   },
   {
     name: "Viola Desmond",
-    focus: "Courage against injustice and structural discrimination.",
+    focus:
+      "Viola Desmond challenged racial segregation through an act of quiet but powerful resistance. Her courage helped reshape Canada's understanding of equality and civil rights, showing that individual action can spark national change.",
   },
   {
     name: "Terry Fox",
-    focus: "Service, resilience, and action for public good.",
+    focus:
+      "Terry Fox transformed personal adversity into a national movement of hope and collective action. His Marathon of Hope continues to inspire determination, unity, and service for the public good.",
   },
   {
     name: "Jean Vanier",
-    focus: "Inclusion, compassion, and shared humanity.",
+    focus:
+      "Jean Vanier redefined inclusion by building communities where people of all abilities could live with dignity, respect, and belonging. His work emphasizes compassion, shared humanity, and the value of every person.",
   },
   {
     name: "Malala Yousafzai",
-    focus: "Education equity and youth voice.",
+    focus:
+      "Malala Yousafzai is a global advocate for girls' education and children's rights. Her courage in the face of extreme adversity has made her a symbol of resilience, education equity, and the power of youth voice.",
   },
 ] as const;
 
