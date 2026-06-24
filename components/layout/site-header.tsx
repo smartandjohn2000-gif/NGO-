@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { HeartHandshake } from "lucide-react";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { DesktopNav } from "@/components/layout/desktop-nav";
 
 export function SiteHeader() {
   return (
@@ -17,19 +18,29 @@ export function SiteHeader() {
           aria-label="World Impact Initiative home"
           data-no-translate="true"
         >
-          <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#0B57D0] text-white">
-            <HeartHandshake size={18} aria-hidden />
+          <span className="inline-flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl ring-1 ring-[#CFE4FF]">
+            <Image
+              src="/images/logo.jpg"
+              alt="World Impact Initiative logo"
+              width={88}
+              height={88}
+              priority
+              className="size-full object-cover"
+            />
           </span>
-          <span className="truncate font-serif text-base font-bold leading-tight text-[#0A245D] md:text-[1.08rem]">
-            World Impact Initiative
+          <span className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate font-serif text-[0.95rem] font-bold text-[#0A245D] sm:text-[1.06rem]">
+              World Impact Initiative
+            </span>
+            <span className="hidden truncate text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#0B57D0] sm:block">
+              Dignity · Equality · Opportunity
+            </span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <MobileNav />
-        </div>
+        <DesktopNav />
 
-        <div className="flex shrink-0 items-center justify-end md:ml-3">
+        <div className="flex shrink-0 items-center justify-end gap-2">
           <ButtonLink
             href="/donate"
             variant="primary"
