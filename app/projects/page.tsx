@@ -74,8 +74,8 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        title="Projects creating measurable, lasting change"
-        subtitle="A closer look at the initiatives we are delivering with communities, volunteers, and partners across our impact areas."
+        title="Projects that create measurable lasting change"
+        subtitle="A closer look at the Initiatives, we are implementing in collaboration with communities, volunteers, and partners across our impact areas."
         image="/images/projects-hero-build.jpg"
         mono
       />
