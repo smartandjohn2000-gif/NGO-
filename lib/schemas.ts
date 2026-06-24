@@ -40,6 +40,19 @@ export const memberRegistrationSchema = z.object({
   email: z.string().email("Valid email is required."),
 });
 
+export const donationSchema = z.object({
+  amount: z
+    .number({ message: "Enter a donation amount." })
+    .min(5, "Minimum donation is $5.")
+    .max(100000, "Please contact us directly for gifts above $100,000."),
+  frequency: z.enum(["one_time", "monthly"], {
+    message: "Choose a giving frequency.",
+  }),
+  fullName: z.string().max(120).optional(),
+  email: z.string().email("A valid email is required for your receipt."),
+  designation: z.string().max(120).optional(),
+});
+
 export const profileUpdateSchema = z.object({
   full_name: z.string().min(2),
   country: z.string().min(2),
@@ -50,3 +63,4 @@ export const profileUpdateSchema = z.object({
 export type VolunteerApplicationInput = z.infer<typeof volunteerApplicationSchema>;
 export type ContactInput = z.infer<typeof contactSchema>;
 export type EventRsvpInput = z.infer<typeof eventRsvpSchema>;
+export type DonationInput = z.infer<typeof donationSchema>;
