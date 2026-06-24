@@ -25,7 +25,7 @@ export default function AboutPage() {
       <PageHero
         title="About World Impact Initiative"
         subtitle="A Canadian nonprofit dedicated to human dignity, inclusion, and sustainable community impact."
-        image="/images/main_uploads/main-5.jpg"
+        image="/images/about-hero-team.jpg"
       />
 
       <div className="container-shell space-y-14 py-14 md:space-y-20 md:py-20">
