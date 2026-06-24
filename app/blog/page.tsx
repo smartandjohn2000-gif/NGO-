@@ -17,7 +17,8 @@ export default function BlogPage() {
       <PageHero
         title="Blog & News"
         subtitle="Insights, updates, and stories from World Impact Initiative programs and partners."
-        image="/images/main_uploads/main-3.jpg"
+        image="/images/blog-hero-writing.jpg"
+        mono
       />
 
       <section className="container-shell py-14 md:py-20">

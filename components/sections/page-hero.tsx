@@ -11,6 +11,13 @@ type PageHeroProps = {
    * stands out clearly over the photo.
    */
   highlight?: boolean;
+  /**
+   * When true, the photograph is kept clear and lightly transparent while the
+   * heading is set in white on a black panel and the subtitle in black on a
+   * white panel, so the writing reads crisply on white and black over the
+   * image.
+   */
+  mono?: boolean;
   primaryAction?: { label: string; href: string };
   secondaryAction?: { label: string; href: string };
 };
@@ -20,9 +27,12 @@ export function PageHero({
   subtitle,
   image,
   highlight = false,
+  mono = false,
   primaryAction,
   secondaryAction,
 }: PageHeroProps) {
+  const imageOpacity = mono ? "opacity-90" : highlight ? "opacity-55" : "opacity-78";
+
   return (
     <section className="relative isolate overflow-hidden bg-[#0B57D0] text-white">
       <Image
@@ -30,18 +40,33 @@ export function PageHero({
         alt=""
         fill
         priority
-        className={`object-cover ${highlight ? "opacity-55" : "opacity-78"}`}
+        className={`object-cover ${imageOpacity}`}
         sizes="100vw"
       />
       <div
         className={
-          highlight
-            ? "absolute inset-0 bg-gradient-to-r from-[#06245F]/82 via-[#0A347F]/60 to-[#06245F]/72"
-            : "absolute inset-0 bg-gradient-to-r from-[#083EA0]/70 via-[#1F7DFF]/38 to-[#0A245D]/32"
+          mono
+            ? "absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/45"
+            : highlight
+              ? "absolute inset-0 bg-gradient-to-r from-[#06245F]/82 via-[#0A347F]/60 to-[#06245F]/72"
+              : "absolute inset-0 bg-gradient-to-r from-[#083EA0]/70 via-[#1F7DFF]/38 to-[#0A245D]/32"
         }
       />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        {highlight ? (
+        {mono ? (
+          <>
+            <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+              <span className="box-decoration-clone rounded-lg bg-black/80 px-3 py-1 text-white shadow-lg ring-1 ring-white/20">
+                {title}
+              </span>
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed md:text-[1.3rem]">
+              <span className="box-decoration-clone rounded-md bg-white/90 px-2 py-1 text-[#111111] shadow-md">
+                {subtitle}
+              </span>
+            </p>
+          </>
+        ) : highlight ? (
           <>
             <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
               <span className="box-decoration-clone rounded-lg bg-[#06245F]/70 px-3 py-1 shadow-lg ring-1 ring-white/15 [text-shadow:_0_2px_10px_rgba(0,0,0,0.55)]">

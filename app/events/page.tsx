@@ -37,7 +37,7 @@ export default function EventsPage() {
         title="Events"
         subtitle="Join upcoming events, review past sessions, and engage with our global impact community."
         image="/images/events-hero-speaker.jpg"
-        highlight
+        mono
       />
 
       <div className="container-shell space-y-12 py-12 md:space-y-16 md:py-16">

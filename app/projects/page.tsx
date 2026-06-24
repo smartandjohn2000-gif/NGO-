@@ -76,7 +76,8 @@ export default function ProjectsPage() {
       <PageHero
         title="Projects creating measurable, lasting change"
         subtitle="A closer look at the initiatives we are delivering with communities, volunteers, and partners across our impact areas."
-        image="/images/main_uploads/main-1.jpg"
+        image="/images/projects-hero-build.jpg"
+        mono
       />
 
       <div className="container-shell py-14 md:py-20">
