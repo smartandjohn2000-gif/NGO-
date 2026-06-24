@@ -197,6 +197,41 @@ export type Database = {
         };
         Relationships: [];
       };
+      donations: {
+        Row: {
+          id: string;
+          donor_name: string | null;
+          donor_email: string;
+          amount_cents: number;
+          currency: string;
+          frequency: "one_time" | "monthly";
+          designation: string | null;
+          provider: string;
+          status: "pending" | "completed" | "failed";
+          stripe_session_id: string | null;
+          stripe_payment_intent_id: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          donor_name?: string | null;
+          donor_email: string;
+          amount_cents: number;
+          currency?: string;
+          frequency?: "one_time" | "monthly";
+          designation?: string | null;
+          provider?: string;
+          status?: "pending" | "completed" | "failed";
+          stripe_session_id?: string | null;
+          stripe_payment_intent_id?: string | null;
+        };
+        Update: {
+          status?: "pending" | "completed" | "failed";
+          stripe_session_id?: string | null;
+          stripe_payment_intent_id?: string | null;
+        };
+        Relationships: [];
+      };
       beneficiaries: {
         Row: {
           id: string;
