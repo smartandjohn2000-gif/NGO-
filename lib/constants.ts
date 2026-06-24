@@ -794,7 +794,6 @@ export const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://linktr.ee/worldimpactinitiative.org" },
   { label: "LinkedIn", href: "https://linktr.ee/worldimpactinitiative.org" },
   { label: "X (Twitter)", href: "https://linktr.ee/worldimpactinitiative.org" },
-  { label: "YouTube", href: "https://linktr.ee/worldimpactinitiative.org" },
 ] as const;
 
 export const ADMIN_ROLES = [
