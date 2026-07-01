@@ -27,10 +27,20 @@ export function VolunteerForm() {
     setIsSubmitting(true);
     setStatus(null);
     try {
-      const response = await fetch("/api/volunteer", {
+      // Netlify Forms captures the submission and emails it to the
+      // volunteer coordination inbox. The POST must target the static
+      // skeleton path (not "/", which the Next.js SSR handler intercepts)
+      // and be URL-encoded with the matching form-name.
+      const payload = new URLSearchParams({
+        "form-name": "volunteer",
+        subject: `New volunteer application from ${values.fullName}`,
+        ...values,
+      });
+
+      const response = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: payload.toString(),
       });
 
       if (!response.ok) {
@@ -49,7 +59,21 @@ export function VolunteerForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 md:grid-cols-2" noValidate>
+    <form
+      name="volunteer"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid gap-4 md:grid-cols-2"
+      noValidate
+    >
+      <input type="hidden" name="form-name" value="volunteer" />
+      <p className="hidden">
+        <label>
+          Do not fill this out if you are human: <input name="bot-field" />
+        </label>
+      </p>
       <div>
         <label className="mb-2 block text-sm font-semibold text-[#0F4C81]" htmlFor="fullName">
           Full Name
